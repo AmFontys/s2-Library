@@ -1,0 +1,45 @@
+1.Home
+
+2.About
+3.Contact
+4.Work for us
+5.Employment -> Volunteer line can be the same but hide some things or change the genarated cards
+6.Work info
+7.Apply for
+8.Opening hours
+
+9.Catalogue
+10.Books
+11.For sale
+12.Book info -> use multiple times (reservation too)
+13.Book Reservation
+14.Movies
+15.Movie info -> use multiple times (reservation too)
+16.Movie Reservation -> bit diffrent then the one from books
+17.Cattegory (toddlers,youth,etc.)
+
+18.Agenda
+19.Workshop
+20.Workshop info
+21.Events
+22.Event info
+23.Storytime
+24.recommendation
+25.sign up
+
+26.Login -> register can be in the same page but hidden until button click
+
+27.Details
+28.Management
+29Employment
+30.Schedule
+31.New schedule
+32.Update schedule (possible merge)
+33.Employees / Volenteers (hide some things and show other things depended on which one)
+34.new employee or volunteers (hide some things and show other things depending on which one)
+35.Update employee (maybe merge but probally wont)
+36.Personal details (change own details)
+37.Update details (maybe merge it with personal details)
+38.Extend rent period
+39.Shedule (Only shown to non-volenteers and non-employees)
+40.Change availability
