@@ -8,7 +8,7 @@
         <Name>Book</Name>
         <Access>Public</Access>
         <Location left="647" top="385" />
-        <Size width="263" height="230" />
+        <Size width="717" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int _pages</Member>
         <Member type="Field">private string _author</Member>
@@ -24,8 +24,8 @@
       <Entity type="Class">
         <Name>Movie</Name>
         <Access>Public</Access>
-        <Location left="968" top="385" />
-        <Size width="162" height="264" />
+        <Location left="1428" top="412" />
+        <Size width="849" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _subtitled</Member>
         <Member type="Field">private string _producer</Member>
@@ -43,7 +43,7 @@
       <Entity type="Class">
         <Name>Item</Name>
         <Access>Public</Access>
-        <Location left="647" top="28" />
+        <Location left="1293" top="32" />
         <Size width="518" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">protected string _name</Member>
@@ -64,7 +64,7 @@
       <Entity type="Class">
         <Name>Genre</Name>
         <Access>Public</Access>
-        <Location left="1316" top="34" />
+        <Location left="2010" top="61" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _genreName</Member>
@@ -77,8 +77,18 @@
         <Name>Library</Name>
         <Access>Public</Access>
         <Location left="14" top="28" />
-        <Size width="162" height="216" />
+        <Size width="162" height="247" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public void DeleteItem()</Member>
+        <Member type="Method">public void DeleteReservation()</Member>
+        <Member type="Method">public void DeleteAccount()</Member>
+        <Member type="Method">public void DeleteEvent()</Member>
+        <Member type="Method">public void DeleteWorkingHour()</Member>
+        <Member type="Method">public void DeleteShedule()</Member>
+        <Member type="Method">public void AddBook()</Member>
+        <Member type="Method">public void AddMovie()</Member>
+        <Member type="Method">public Book SearchBook()</Member>
+        <Member type="Method">public Movie SearchMovie()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Comment">
@@ -89,61 +99,115 @@
       <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="250" top="316" />
-        <Size width="162" height="216" />
+        <Location left="223" top="646" />
+        <Size width="753" height="332" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private string _fname</Member>
+        <Member type="Field">private string _lname</Member>
+        <Member type="Field">private string _email</Member>
+        <Member type="Field">private string _telephone</Member>
+        <Member type="Field">private string _street</Member>
+        <Member type="Field">private string _houseNum</Member>
+        <Member type="Field">private string _zipcode</Member>
+        <Member type="Field">private string _city</Member>
+        <Member type="Field">private string _password</Member>
+        <Member type="Field">private string _keyword</Member>
+        <Member type="Field">private string _card</Member>
+        <Member type="Method">public string GetKeyword()</Member>
+        <Member type="Constructor">public Account(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
+        <Member type="Method">public void UpdateAccount()</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Worker</Name>
         <Access>Public</Access>
-        <Location left="246" top="587" />
+        <Location left="260" top="1043" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private string _bankAccount</Member>
+        <Member type="Field">private string _citizenServiceNum</Member>
+        <Member type="Field">private double _salary</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Position</Name>
         <Access>Public</Access>
-        <Location left="452" top="593" />
-        <Size width="162" height="216" />
+        <Location left="527" top="1024" />
+        <Size width="237" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private string _name</Member>
+        <Member type="Field">private double _startSalary</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Member type="Method">public double GetStartSalary()</Member>
+        <Member type="Method">public string GetName()</Member>
+        <Member type="Constructor">public Position(string name, double startSalary)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>OpenHour</Name>
         <Access>Public</Access>
-        <Location left="10" top="929" />
-        <Size width="162" height="216" />
+        <Location left="10" top="1397" />
+        <Size width="412" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int _week</Member>
         <Member type="Field">private int _day</Member>
-        <Member type="Field">private int _openTime</Member>
-        <Member type="Field">private int _closeTime</Member>
+        <Member type="Field">private TimeSpan _openTime</Member>
+        <Member type="Field">private TimeSpan _closeTime</Member>
+        <Member type="Method">public string GetDate()</Member>
+        <Member type="Method">public string GetTime()</Member>
+        <Member type="Constructor">public OpenHour(int week, int day, TimeSpan opentime, TimeSpan closetime)</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Reservation</Name>
         <Access>Public</Access>
-        <Location left="424" top="164" />
-        <Size width="162" height="216" />
+        <Location left="424" top="151" />
+        <Size width="449" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private DateTime _startDate</Member>
+        <Member type="Field">private DateTime _endDate</Member>
+        <Member type="Field">private int _extensionNum</Member>
+        <Member type="Method">public void MakeReservation(Item item, Account borrower)</Member>
+        <Member type="Method">public void ExtendRentPeriod()</Member>
+        <Member type="Constructor">public Reservation(Item item, Account user, DateTime startDate, DateTime endDate)</Member>
+        <Member type="Constructor">public Reservation(DateTime start, DateTime end, Item item)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Event</Name>
         <Access>Public</Access>
-        <Location left="189" top="929" />
-        <Size width="162" height="216" />
+        <Location left="368" top="1643" />
+        <Size width="659" height="264" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private string _eventName</Member>
+        <Member type="Field">private DateTime _eventDate</Member>
+        <Member type="Field">private double _cost</Member>
+        <Member type="Field">private TimeSpan _openTime</Member>
+        <Member type="Field">private TimeSpan _endTime</Member>
+        <Member type="Field">private string _description</Member>
+        <Member type="Field">private string eventType</Member>
+        <Member type="Constructor">public Event(string name, DateTime date, double cost, TimeSpan openTime, TimeSpan closeTime, string description, string type)</Member>
+        <Member type="Method">public string GetDescription()</Member>
+        <Member type="Method">public DateTime GetEventDate()</Member>
+        <Member type="Method">public override string ToString()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Schedule</Name>
         <Access>Public</Access>
-        <Location left="371" top="929" />
-        <Size width="162" height="216" />
+        <Location left="813" top="1397" />
+        <Size width="405" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Field">private DateTime _date</Member>
+        <Member type="Field">private TimeSpan _beginHour</Member>
+        <Member type="Field">private TimeSpan _endHour</Member>
+        <Member type="Method">public override string ToString()</Member>
+        <Member type="Method">public void AddWorker(Worker employee)</Member>
+        <Member type="Method">public void DeleteWorker(Worker worker)</Member>
+        <Member type="Constructor">public Schedule(DateTime date, TimeSpan beginHour, TimeSpan endHour)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -152,20 +216,20 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1050</X>
-          <Y>360</Y>
+          <X>1510</X>
+          <Y>387</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1050</X>
-          <Y>351</Y>
+          <X>1727</X>
+          <Y>355</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="0" second="2">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>800</X>
-          <Y>353</Y>
+          <X>1446</X>
+          <Y>357</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
@@ -178,14 +242,18 @@
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="7" second="8">
+        <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>433</X>
-          <Y>707</Y>
+          <X>448</X>
+          <Y>1052</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndRole>_position</EndRole>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Generalization" first="7" second="6">
         <StartOrientation>Vertical</StartOrientation>
@@ -195,6 +263,10 @@
         <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>205</X>
+          <Y>105</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
         <EndRole>-_items</EndRole>
@@ -205,37 +277,53 @@
         <Label>
         </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>167</X>
-          <Y>272</Y>
+          <Y>303</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>198</X>
+          <Y>672</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+        <EndRole>_accounts</EndRole>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="10">
-        <Label>
-        </Label>
+        <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+        <EndRole>_reservations</EndRole>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>0..*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="10" second="2">
-        <Label>
-        </Label>
+        <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndRole>_item</EndRole>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="10" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>483</X>
+          <Y>621</Y>
+        </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
+        <EndRole>_account</EndRole>
+        <StartMultiplicity>*</StartMultiplicity>
+        <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="9">
         <Label>
@@ -244,10 +332,12 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>166</X>
-          <Y>274</Y>
+          <Y>305</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="11">
         <Label>
@@ -256,14 +346,16 @@
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>167</X>
-          <Y>272</Y>
+          <Y>303</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>167</X>
-          <Y>873</Y>
+          <X>357</X>
+          <Y>1342</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="4" second="12">
         <Label>
@@ -271,31 +363,30 @@
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>167</X>
-          <Y>274</Y>
+          <X>166</X>
+          <Y>1312</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>322</X>
-          <Y>873</Y>
+          <X>837</X>
+          <Y>1372</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="7" second="12">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="12" second="7">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>403</X>
-          <Y>828</Y>
-        </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>452</X>
-          <Y>859</Y>
+          <X>488</X>
+          <Y>1285</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
-        <AssociationType>Composition</AssociationType>
+        <AssociationType>Association</AssociationType>
+        <EndRole>_workers</EndRole>
+        <StartMultiplicity>1</StartMultiplicity>
+        <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
     </Relationships>
   </ProjectItem>
