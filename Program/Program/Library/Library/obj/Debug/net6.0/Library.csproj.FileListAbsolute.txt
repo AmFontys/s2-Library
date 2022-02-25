@@ -1,0 +1,55 @@
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\appsettings.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.staticwebassets.runtime.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.exe
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.deps.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.runtimeconfig.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\bin\Debug\net6.0\Library.pdb
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.csproj.AssemblyReference.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.AssemblyInfoInputs.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.AssemblyInfo.cs
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.csproj.CoreCompileInputs.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cs
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\scopedcss\bundle\Library.styles.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\scopedcss\projectbundle\Library.bundle.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\refint\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.pdb
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\Library.genruntimeconfig.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\WAD\Library_Web\Library\obj\Debug\net6.0\ref\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\appsettings.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.staticwebassets.runtime.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.exe
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.deps.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.runtimeconfig.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library.pdb
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.csproj.AssemblyReference.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.AssemblyInfoInputs.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.AssemblyInfo.cs
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.csproj.CoreCompileInputs.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.RazorAssemblyInfo.cs
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\bundle\Library.styles.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\projectbundle\Library.bundle.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\refint\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.pdb
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.genruntimeconfig.cache
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\ref\Library.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\Pages\shared\_MasterLayout.cshtml.rz.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\Pages\shared\Theme\_catalogLayout.cshtml.rz.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\Pages\shared\Theme\_ManagementLayout.cshtml.rz.scp.css
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\scopedcss\Pages\shared\Theme\_NormalLayout.cshtml.rz.scp.css
