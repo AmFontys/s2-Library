@@ -6,14 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Pages\Catalog\" />
-    <Folder Include="Pages\Detail\Management\" />
-    <Folder Include="Pages\About\" />
-    <Folder Include="Pages\Agenda\" />
-    <Folder Include="Pages\Detail\" />
-    <Folder Include="Pages\Detail\Shedule\" />
-    <Folder Include="Pages\Detail\User\" />
-  </ItemGroup>
-
 </Project>
