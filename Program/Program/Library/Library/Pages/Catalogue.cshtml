@@ -8,7 +8,7 @@
 }
 
 <div class="long-container">
-        <a asp-area="" asp-page="" class="redirection">
+        <a asp-area="" asp-page="/Catalog/Books" class="redirection">
           <div class='banner-img'>
             <h1 class="name">Books</h1>
             <p class="description">See all books that are in this library</p>
@@ -16,7 +16,7 @@
         </a></div>
   
       <div class="long-container">
-        <a asp-area="" asp-page="" class="redirection">
+        <a asp-area="" asp-page="/Catalog/Movies" class="redirection">
           <div class='banner-img'>
             <h1 class="name">Movies</h1>
             <p class="description">See all Movies that are in this library</p>
@@ -24,9 +24,43 @@
         </a></div>
   
       <div class="long-container">
-        <a asp-area="" asp-page="" class="redirection">
+        <a asp-area="" asp-page="/Catalog/Category" asp-route-id="Adult" class="redirection">
           <div class='banner-img'>
-            <h1 class="name">Catogy A</h1>
-            <p class="description">---</p>
+            <h1 class="name">Category adult</h1>
+            <p class="description">See all adult books</p>
           </div>
+        </a></div>
+
+        
+      <div class="long-container">
+        <a asp-area="" asp-page="/Catalog/Category" asp-route-id="Youth" class="redirection">
+          <div class='banner-img'>
+            <h1 class="name">Category youth</h1>
+            <p class="description">See all Youth books</p>
+          </div>        
+        </a></div>
+             
+      <div class="long-container">
+        <a asp-area="" asp-page="/Catalog/Category" asp-route-id="child" class="redirection">
+          <div class='banner-img'>
+            <h1 class="name">Category children</h1>
+            <p class="description">See all children books</p>
+          </div>        
+        </a></div>
+                  
+      <div class="long-container">
+        <a asp-area="" asp-page="/Catalog/Category" asp-route-id="toddler" class="redirection">
+          <div class='banner-img'>
+            <h1 class="name">Category toddler</h1>
+            <p class="description">See all toddler books</p>
+          </div>        
+        </a></div>
+
+                  
+      <div class="long-container">
+        <a asp-area="" asp-page="/Catalog/Category" asp-route-id="senior" class="redirection">
+          <div class='banner-img'>
+            <h1 class="name">Category senior</h1>
+            <p class="description">See all senior books</p>
+          </div>        
         </a></div>

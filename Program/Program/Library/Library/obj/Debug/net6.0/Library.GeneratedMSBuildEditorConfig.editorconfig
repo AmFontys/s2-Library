@@ -27,10 +27,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRcT3BlbmluZ0hvdXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/About/WorkApply.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRcV29ya0FwcGx5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/About/WorkEmployee.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRcV29ya0VtcGxveWVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -101,6 +97,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Catalog/Movies.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZ1xNb3ZpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Catalog/Reservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0YWxvZ1xSZXNlcnZhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Detail.cshtml]
@@ -215,8 +215,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsXFNoZWR1bGVcU2hlZHVsZVVwZGF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Detail/User/PersonalDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsXFVzZXJcUGVyc29uYWxEZXRhaWwuY3NodG1s
+[C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Detail/User/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGV0YWlsXFVzZXJcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Detail/User/PersonalExtendPeriod.cshtml]
@@ -237,6 +237,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Arenco/OneDrive - ROC Gilde Opleidingen/Documenten/Fontyz/S2/Project alone/s2-cb02_library/Program/Program/Library/Library/Pages/shared/_ValidationScriptsPartial.cshtml]

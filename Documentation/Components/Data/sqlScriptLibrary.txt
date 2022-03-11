@@ -1,0 +1,214 @@
+CREATE TABLE Account(
+AccountID int NOT NULL AUTO_INCREMENT,
+Firstname varchar(50)  NOT NULL,
+Lastname varchar(100)  NOT NULL,
+Email varchar(255)  NOT NULL,
+Telephone varchar(20) ,
+Streetname varchar(50)  NOT NULL,
+housenumber varchar(10)  NOT NULL,
+Zipcode varchar(20)  NOT NULL,
+City varchar(50)  NOT NULL,
+Password varchar(255)  NOT NULL,
+Keyword varchar(10)  NOT NULL,
+CardID varchar(20)  NOT NULL
+);
+
+CREATE TABLE Worker(
+WorkerID int NOT NULL AUTO_INCREMENT,
+AccountID int  NOT NULL,
+PositionID int  NOT NULL,
+Workerlevel int  NOT NULL,
+BankAccount varchar(100),
+Citizenservicenumber varchar(50), 
+salary decimal(10,2)
+);
+
+CREATE TABLE Position(
+PositionID int NOT NULL AUTO_INCREMENT,
+PositionName varchar(80)  NOT NULL,
+Startingsalary decimal(10,2)
+);
+
+CREATE TABLE Level(
+LevelID int NOT NULL AUTO_INCREMENT,
+Levelname varchar(50)  NOT NULL
+);
+
+CREATE TABLE Openinghours(
+ID int NOT NULL AUTO_INCREMENT,
+OpeningDate Date  NOT NULL,
+Openingtime date  NOT NULL,
+Closingtime date  NOT NULL
+);
+
+CREATE TABLE Reservation(
+ReservationID int NOT NULL AUTO_INCREMENT,
+itemID int  NOT NULL,
+CardID varchar(20)  NOT NULL,
+StartDate Date  NOT NULL,
+Enddate Date NOT NULL,
+Extended int(1)
+);
+
+CREATE TABLE item(
+ItemID int NOT NULL AUTO_INCREMENT,
+Name varchar(255)  NOT NULL,
+ISBN varchar(30)  NOT NULL,
+Language varchar(255),
+Description TEXT  NOT NULL,
+cost decimal
+);
+
+CREATE TABLE BookInfo(
+BookID int NOT NULL AUTO_INCREMENT,
+ItemID int  NOT NULL,
+Pages int  NOT NULL,
+Author varchar(50)  NOT NULL,
+Publisher varchar(100)  NOT NULL
+);
+
+CREATE TABLE MovieInfo(
+MovieID int NOT NULL AUTO_INCREMENT,
+ItemID int  NOT NULL,
+SubtitleLanguage varchar(255),
+Producer varchar(255)  NOT NULL,
+timeInMin int  NOT NULL,
+Demographic varchar(3)
+);
+
+CREATE TABLE Genre(
+ItemID int NOT NULL,
+GenreTypeID int NOT NULL
+);
+
+CREATE TABLE GenreType(
+GenreTypeID int NOT NULL AUTO_INCREMENT,
+GenreName varchar(50) NOT NULL
+);
+
+CREATE TABLE Events(
+EventID int NOT NULL AUTO_INCREMENT,
+EventTypeID int NOT NULL,
+EventName varchar(255)  NOT NULL,
+EventDate Date,
+EventCost decimal,
+EventOpeningtime varchar(6) NOT NULL,
+EventClosingtime varchar(6) NOT NULL,
+EventDescription TEXT NOT NULL,
+PRIMARY KEY (EventID)
+);
+
+CREATE TABLE Eventtype(
+EventTypeID int NOT NULL AUTO_INCREMENT,
+Name varchar(50) NOT NULL
+);
+
+CREATE TABLE Recommendation(
+RecID int NOT NULL AUTO_INCREMENT,
+AccountID int NOT NULL,
+Title varchar(255) NOT NULL
+);
+
+CREATE TABLE Signup(
+AccountID int NOT NULL,
+EventID int NOT NULL,
+SignupDate Date NOT NULL
+);
+
+CREATE TABLE Apply(
+ApplyID int NOT NULL AUTO_INCREMENT,
+AccountID int NOT NULL,
+PositionID int NOT NULL,
+Date Date NOT NULL,
+Available boolean NOT NULL
+);
+
+CREATE TABLE Schedule(
+ScheduleID int NOT NULL AUTO_INCREMENT,
+AvailableID int NOT NULL,
+Date Date NOT NULL,
+beginninghour varchar(6) NOT NULL,
+Endhour varchar(6) NOT NULL
+);
+
+CREATE TABLE Available(
+AvailableID int NOT NULL AUTO_INCREMENT,
+WorkerID int NOT NULL,
+Date Date NOT NULL,
+Available Boolean NOT NULL
+);
+
+/* all tables
+Account | Worker | Available | Schedule | Apply | Signup | Recommendation | Eventtype | Events |
+GenreType | Genre | MovieInfo | BookInfo | item | Reservation | Openinghours | Level | Position |
+*/
+ 
+ALTER TABLE Account
+ADD PRIMARY KEY (AccountID);
+
+ALTER TABLE Worker 
+ADD PRIMARY KEY (WorkerID),
+ADD FOREIGN KEY (AccountID) REFERENCES Account(AccountID),
+ADD FOREIGN KEY (PositionID) REFERENCES Position(PositionID),
+ADD FOREIGN KEY (Workerlevel) REFERENCES level(LevelID);
+
+ALTER TABLE Available 
+ADD PRIMARY KEY (AvailableID),
+ADD FOREIGN KEY (WorekerID) REFERENCES worker(workerID);
+
+ALTER TABLE Schedule 
+ADD PRIMARY KEY (SheduleID),
+ADD FOREIGN KEY (AvailableID) REFERENCES Available(AvailableID);
+
+
+ALTER TABLE Apply 
+ADD PRIMARY KEY (ApplyID),
+ADD FOREIGN KEY (accountID) REFERENCES account(accountID),
+ADD FOREIGN KEY (PositionID) REFERENCES position(positionID);
+
+ALTER TABLE Signup
+ADD FOREIGN KEY (accountID) REFERENCES account(accountID),
+ADD FOREIGN KEY (eventID) REFERENCES events(EventID);
+
+ALTER TABLE Recommendation 
+ADD PRIMARY KEY (RecID),
+ADD FOREIGN KEY (AccountID) REFERENCES account(accountID);
+
+ALTER TABLE Eventtype 
+ADD PRIMARY KEY (EventTypeID);
+
+ALTER TABLE Events 
+ADD PRIMARY KEY (EventID),
+ADD FOREIGN KEY (EventTypeID) REFERENCES Eventtype(EventTypeID);
+
+ALTER TABLE GenreType 
+ADD PRIMARY KEY (GenreTypeID);
+
+ALTER TABLE Genre 
+ADD FOREIGN KEY (itemID) REFERENCES item(itemID),
+ADD FOREIGN KEY (GenreTypeID) REFERENCES GenreType(GenreTypeID);
+
+ALTER TABLE MovieInfo 
+ADD PRIMARY KEY (MovieID),
+ADD FOREIGN KEY (itemID) REFERENCES item(itemID);
+
+ALTER TABLE BookInfo 
+ADD PRIMARY KEY (BookID),
+ADD FOREIGN KEY (itemID) REFERENCES item(ItemID);
+
+ALTER TABLE item
+ADD PRIMARY KEY (itemID);
+
+ALTER TABLE Reservation 
+ADD PRIMARY KEY (ReservationID),
+ADD FOREIGN KEY (itemID) REFERENCES item(ItemID),
+ADD FOREIGN KEY (CardID) REFERENCES Account(CardID);
+
+ALTER TABLE Openinghours 
+ADD PRIMARY KEY (ID);
+
+ALTER TABLE Level 
+ADD PRIMARY KEY (LevelID);
+
+ALTER TABLE Position 
+ADD PRIMARY KEY (PositionID);

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Library.Pages.About
+namespace Library.Pages.Catalog
 {
-    public class WorkApplyModel : PageModel
+    public class ReservationModel : PageModel
     {
         public void OnGet()
         {

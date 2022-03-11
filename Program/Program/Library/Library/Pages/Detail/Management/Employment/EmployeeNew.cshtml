@@ -1,4 +1,74 @@
 ﻿@page
 @model Library.Pages.Detail.Management.EmployeeNewModel
 @{
+    Layout = "Theme/_ManagementLayout";
 }
+
+
+
+@section middleTitle{
+    New Worker
+}
+
+ <form action="/Detail/Management/Employment/EmployeeInfo" class="workerForm">
+   <table class="formTable">
+     <tr>
+       <td> <label for="fname">First name: </label></td>
+       <td> <input type="text" id="fname" name="" ></td>
+       <td> <label for="wposition">Worker Position: </label></td>
+       <td> <select name="position" id="wposition">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                </select></td>
+     </tr>
+     <tr>
+       <td> <label for="lname">Last name: </label></td>
+       <td> <input type="text" id="lname" name="" ></td>
+       <td> <label for="wlevel">Worker level: </label></td>
+       <td> <input type="text" id="wlevel" name="" ></td>
+     </tr>
+     <tr>
+       <td><label for="email">email: </label></td>
+       <td><input type="email" id="email" name="" ></td>
+       <td><label for="bank">Bank account: </label></td>
+       <td><input type="text" id="bank" name="" ></td>
+     </tr>
+     <tr>
+       <td>  <label for="telephone">Telephone number: </label></td>
+       <td><input type="tel" id="telephone" name="" ></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td><label for="street">Street name and street number : </label></td>
+       <td><input type="text" id="street" name="" ></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td><label for="zipcode">Zipcode: </label></td>
+       <td> <input type="text" id="zipcode" name="" ></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td><label for="place">residency: </label></td>
+       <td><input type="text" id="place" name="" ></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td><label for="pword">Password: </label></td>
+       <td> <input type="password" id="pword" name="" ></td>
+       <td></td>
+       <td></td>
+     </tr>
+     <tr>
+       <td colspan="4"> <button type="submit">Submit</button></td>
+     </tr>
+   </table>
+      
+
+ </form>

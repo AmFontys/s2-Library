@@ -1,4 +1,34 @@
 ﻿@page
 @model Library.Pages.Catalog.BookInfoModel
 @{
+    Layout = "Theme/_ManagementLayout";
+}
+
+@section backButton{
+<a asp-area="" asp-page="./Books">< Go back</a>
+}
+@section imgSidebar{
+<img class="img-infobar"  alt="x" src="../../../Img/placeholder_mockupType.png">
+}
+@section textSidebar{
+<p> Book ISBN: 91234030831</p>
+        <p>Book pages: 242</p>
+        <p>Book genres:</p>
+        <p>[Youth] [Fantasy] [Romance] [Mystery]</p>
+        <p>Language: English </p>
+        <p>Author: Lizzy Kings </p>
+        <p>Publisher: The kings reader</p>
+}
+@section middleTitle{
+<h3>Throne and the Rose</h3>
+}  
+ 
+<p>
+    The kingdom was in trouble through an invasion of deadly roses the kingdom's roses are turning against them. Then comes Rose thórn an unknown individual that was in the castle she asked for 20.000 roses to help the kingdom against these roses with her power of the natural elements and scissors. Watch what will happen when she isn't taken seriously 
+</p>
+
+@section footer{
+<div class="btn-infomain">
+    <a asp-area="" asp-page="./Reservation" asp-route-id="bookId">Reserve</a>
+ </div>
 }

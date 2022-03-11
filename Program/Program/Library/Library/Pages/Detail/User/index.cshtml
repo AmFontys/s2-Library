@@ -1,0 +1,110 @@
+﻿@page
+@model Library.Pages.Detail.User.PersonalDetailModel
+@{
+    Layout = "Theme/_ManagementLayout";
+}
+
+@section imgSidebar{
+ <img class="img-infobar"  alt="x" src="../../../Img/placeholder_mockupType.png">
+}
+@section textSidebar{
+    <p> Rose Thórn</p>
+    <p>rose@gmail.com</p>
+    <p>ThornBush 10a</p>
+    <p>7053SS Garden</p>
+    <p>0412223344</p>
+}
+@section actionSidebar{
+    <p><a asp-area="" asp-page="./PersonalUpdate">Update your own info</a></p>
+    <p><a asp-area="" asp-page="./PersonalExtendPeriod">Extend the rent period of a book</a></p>
+}
+           
+@section middleTitle{
+Username
+}
+       
+@section middleTable{
+     <table class="info-table">
+              <tr>
+                  <th>Book ISBN</th>
+                  <th>Book name</th>
+                  <th>Rent date</th>
+                  <th>Return date</th>
+                  <th>Extendable</th>
+              </tr>
+              <tr>
+                  <td>129384338198</td>
+                  <td>Princess Rose and the ugly duckling</td>
+                  <td>1-2-2022</td>
+                  <td>15-2-2022</td>
+                  <td>No</td>
+              </tr>
+              <tr>
+                  <td>129384338198</td>
+                  <td>Princess Rose and the ugly duckling</td>
+                  <td>1-2-2022</td>
+                  <td>15-2-2022</td>
+                  <td>No</td>
+              </tr>
+              <tr>
+                  <td>129384338198</td>
+                  <td>Princess Rose and the ugly duckling</td>
+                  <td>1-2-2022</td>
+                  <td>15-2-2022</td>
+                  <td>No</td>
+              </tr>
+       </table>
+
+       <table class="info-table">
+        <tr>
+            <th>Movie ISBN</th>
+            <th>Movie name</th>
+            <th>Rent date</th>
+            <th>Return date</th>
+            <th>Cost</th>
+        </tr>
+        <tr>
+            <td>129384338198</td>
+            <td>Princess Rose and the ugly duckling</td>
+            <td>1-2-2022</td>
+            <td>15-2-2022</td>
+            <td>2.50</td>
+        </tr>
+        <tr>
+            <td>129384338198</td>
+            <td>Princess Marry and the ugly duckling</td>
+            <td>1-2-2022</td>
+            <td>15-2-2022</td>
+            <td>1.75</td>
+        </tr>
+        <tr>
+            <td>129384338198</td>
+            <td>Princess Lilly and the golden swan</td>
+            <td>1-2-2022</td>
+            <td>15-2-2022</td>
+            <td>50</td>
+        </tr>
+ </table>
+
+ <table class="info-table">
+    <tr>
+        <th>library card</th>
+        <th>Date</th>
+        <th>Paid</th>
+        <th>Cost</th>
+    </tr>
+    <tr>
+        <td>919228</td>
+        <td>1-1-2022</td>
+        <td>Yes</td>
+        <td>6.50</td>
+    </tr>
+    <tr>
+        <td>919228</td>
+        <td>1-2-2022</td>
+        <td>No</td>
+        <td>5.50</td>
+    </tr>
+    </table>
+}
+      

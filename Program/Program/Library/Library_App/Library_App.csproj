@@ -9,11 +9,43 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Employment\" />
-    <Folder Include="Views\Event\" />
-    <Folder Include="Views\Catalogue\" />
-    <Folder Include="Views\Account\" />
-    <Folder Include="Views\openingHour\" />
+    <ProjectReference Include="..\Library\Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Catalogue\CatalogueNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Catalogue\CatalogueOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Event\EventNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Event\EventOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Event\EventUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 
 </Project>
