@@ -4,16 +4,7 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\Account\AccountNew.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\Account\AccountOverview.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\Account\AccountUpdate.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Views\Catalogue\CatalogueUpdate.cs">
+    <Compile Update="Views\Event\EventNew.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\MainForm.cs">

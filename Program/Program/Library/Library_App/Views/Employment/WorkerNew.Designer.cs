@@ -1,6 +1,6 @@
 ﻿namespace Library_App.Views.Account
 {
-    partial class CatalogueNew
+    partial class WorkerNew
     {
         /// <summary> 
         /// Required designer variable.

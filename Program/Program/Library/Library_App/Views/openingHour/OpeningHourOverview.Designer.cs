@@ -1,6 +1,6 @@
 ﻿namespace Library_App.Views.Account
 {
-    partial class CatalogueOverview
+    partial class OpeningHourOverview
     {
         /// <summary> 
         /// Required designer variable.

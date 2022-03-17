@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Library_App.Views.Account
 {
-    public partial class CatalogueUpdate : UserControl
+    public partial class OpeningHourUpdate : UserControl
     {
-        public CatalogueUpdate()
+        public OpeningHourUpdate()
         {
             InitializeComponent();
         }

@@ -1,4 +1,4 @@
-﻿namespace Library_App.Views.Catalogue
+﻿namespace Library_App.Views.Account
 {
     partial class CatalogueUpdate
     {

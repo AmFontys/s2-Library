@@ -13,10 +13,22 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Account\AccountNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Account\AccountOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Account\AccountUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Views\Catalogue\CatalogueNew.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Catalogue\CatalogueOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Catalogue\CatalogueUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Employment\WorkerNew.cs">
@@ -28,9 +40,7 @@
     <Compile Update="Views\Employment\WorkerUpdate.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Views\Event\EventNew.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Update="Views\Event\EventNew.cs" />
     <Compile Update="Views\Event\EventOverview.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Library_App.Views.Catalogue
+namespace Library_App.Views.Account
 {
     public partial class CatalogueUpdate : UserControl
     {

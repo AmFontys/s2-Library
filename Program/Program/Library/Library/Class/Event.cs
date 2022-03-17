@@ -16,7 +16,13 @@ namespace Library.Class
 
 		public Event(string name, DateTime date, double cost, TimeSpan openTime, TimeSpan closeTime, string description, string type)
 		{
-			throw new NotImplementedException();
+			_eventName = name;
+			_eventDate = date;
+			_cost = cost;
+			_openTime = openTime;
+			_endTime = closeTime;
+			_description = description;
+			eventType = type;
 		}
 
 		public string GetDescription()
