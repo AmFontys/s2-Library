@@ -12,6 +12,19 @@ namespace Library_App.Views.Account
 {
     public partial class OpeningHourOverview : UserControl
     {
+        private static OpeningHourOverview _instance;
+        public static OpeningHourOverview Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new OpeningHourOverview();
+                }
+                return _instance;
+            }
+        }
+
         public OpeningHourOverview()
         {
             InitializeComponent();
