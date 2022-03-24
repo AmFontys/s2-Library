@@ -52,7 +52,7 @@ namespace Library.Class
 
 		public override string ToString()
 		{
-			throw new NotImplementedException();
+			return $"{this._name}: {this._author}";
 		}
 
 		protected override void AddGenre()

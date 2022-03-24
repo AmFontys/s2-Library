@@ -11,26 +11,16 @@ namespace Library.Class
 {
 	public class Account
 	{
-		[Required]
-		private string _fname { get; set; }
-		[Required]
+		private string _fname { get; set; }		
 		private string _lname { get; set; }
-		[Required][DataType(DataType.EmailAddress)]
 		private string _email { get; set; }
-		private string _telephone { get; set; }
-		[Required]
-		private string _street { get; set; }
-		[Required]
-		private string _houseNum { get; set; }
-		[Required]
-		private string _zipcode { get; set; }
-		[Required]
+		private string _telephone { get; set; }		
+		private string _street { get; set; }		
+		private string _houseNum { get; set; }		
+		private string _zipcode { get; set; }		
 		private string _city { get; set; }
-		[Required][DataType(DataType.Password)]
-		private string _password { get; set; }
-		[Required]
-		private string _keyword;
-		[Required]
+		private string _password { get; set; }		
+		private string _keyword;		
 		private string _card;
 
 
@@ -39,9 +29,7 @@ namespace Library.Class
 		{
 			return _keyword;
 		}
-		public Account() {
-
-		}
+		
 		public Account(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
 		{
 			_fname=fname;
@@ -58,7 +46,7 @@ namespace Library.Class
 			_card = GenerateCard();
 		}
 
-        private string GeneratePassword(byte[] key, string password)
+        private static string GeneratePassword(byte[] key, string password)
         {
 			string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
 			password: password,
@@ -71,8 +59,20 @@ namespace Library.Class
 
         private string GenerateCard()
         {
+			Random rng = new Random();
+			string card = rng.Next(100000, 999999).ToString();
 			//Needs to check if it exist and then genrate a new one
-			return "1";
+			if (checkGeneratedCard(card)) GenerateCard();			
+			return card;
+        }
+
+		private bool checkGeneratedCard(string card)
+        {
+			MySqlCommand command = new();
+			command.CommandText = "Select * From account where CardID=@card";
+			command.Parameters.Add(new MySqlParameter("@card", card));
+			DataSet data = DatabaseExecuter.ExecuteReader(command);
+			return (data.Tables[0].Rows.Count > 0);
         }
 
         private byte[] GenerateKeyWord()
@@ -130,35 +130,24 @@ namespace Library.Class
 			return _fname + " " +_lname;
 		}
 
-		public bool Login(string fname, string lname, string password)
+		public static bool Login(string fname, string lname, string password)
 		{
-				
-				bool exist = ExistingUsername(fname, lname, out string key);
-				if (exist)
-				{
-					byte[] keyBytes = Convert.FromBase64String(key);
-					password = GeneratePassword(keyBytes, password);
-					bool validPassword = CompareGivenPassword(fname, lname, password);
-					if (validPassword) return true;
-					return false;
-				}
+
+			bool exist = ExistingUsername(fname, lname, out string key);
+			if (exist)
+			{
+				byte[] keyBytes = Convert.FromBase64String(key);
+				password = GeneratePassword(keyBytes, password);
+				bool validPassword = CompareGivenPassword(fname, lname, password);
+				if (validPassword) return true;
 				return false;
-			
-
+			}
+			return false;
 		}
 
-		private bool ValidateInput(string validatestring)
+		private static bool CompareGivenPassword(string fname, string lname, string password)
 		{
-			char[] invalidChars = new char[] { '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', ';', '/', '?', ':', '`', '~', '+', '%', '_' };
-
-			if (string.IsNullOrEmpty(validatestring)) return false;
-			if (validatestring.IndexOfAny(invalidChars) == -1) return true;
-			else return false;
-		}
-
-		private bool CompareGivenPassword(string fname, string lname, string password)
-		{
-			_command = new MySqlCommand();
+			MySqlCommand _command = new MySqlCommand();
 			_command.CommandText = "Select * From account where FirstName=@fname and LastName=@lname and Password=@pass";
 			_command.Parameters.Add(new MySqlParameter("@fname", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));
@@ -168,9 +157,9 @@ namespace Library.Class
 			else return false;
 		}
 
-		private bool ExistingUsername(string fname, string lname, out string key)
+		private static bool ExistingUsername(string fname, string lname, out string key)
 		{
-        _command = new MySqlCommand();
+			MySqlCommand _command = new MySqlCommand();
 			_command.CommandText = "Select Keyword From account where FirstName=@name AND LastName=@lname";
 			_command.Parameters.Add(new MySqlParameter("@name", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));

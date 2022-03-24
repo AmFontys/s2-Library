@@ -13,7 +13,7 @@ namespace Library.Pages
         [BindProperty]
         public string pass { get; set; }
 
-        Account Account = new Account();
+        
         public string msg;
 
         public void OnGet()

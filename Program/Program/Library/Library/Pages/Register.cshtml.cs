@@ -1,6 +1,7 @@
 using Library.Class;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
@@ -11,23 +12,31 @@ namespace Library.Pages
     {
         public string msg;
         Regex regex;
-       [BindProperty]
+       [BindProperty][Required]
         public string Fname { get; set; }
         [BindProperty]
+        [Required]
         public string Lname { get; set; }
-        [BindProperty]       
+        [BindProperty]
+        [Required]
         public string Email { get; set; }
         [BindProperty]
+        [Required]
         public string Telephone { get; set; }
         [BindProperty]
+        [Required]
         public string Street { get; set; }
         [BindProperty]
+        [Required]
         public string HouseNum { get; set; }
         [BindProperty]
+        [Required]
         public string Zipcode { get; set; }
         [BindProperty]
+        [Required]
         public string City { get; set; }
         [BindProperty]
+        [Required]
         public string Password { get; set; }
 
         [BindProperty]

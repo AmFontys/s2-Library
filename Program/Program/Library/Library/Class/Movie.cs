@@ -56,7 +56,7 @@ namespace Library.Class
 
 		public override string ToString()
 		{
-			throw new NotImplementedException();
+			return $"{this._name}: {this._producer}, {this._demographic},{this._timeÌnMin}; {this.GetDescription}";
 		}
 
 		protected override void AddGenre()

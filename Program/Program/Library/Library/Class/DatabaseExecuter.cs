@@ -68,7 +68,7 @@ namespace Library.Class
             }
             catch (Exception ex)
             {
-                throw new Exception(string.Format("query: {0}, errormessage: {1}", command.CommandText, ex.Message));
+                Console.WriteLine(string.Format("query: {0}, errormessage: {1}", command.CommandText, ex.Message));
             }
             finally
             {

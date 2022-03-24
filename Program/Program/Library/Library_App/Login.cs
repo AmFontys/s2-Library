@@ -5,11 +5,10 @@ namespace Library_App
 {
     public partial class Login : Form
     {
-        Account Account { get; set; }
+        
         public Login()
         {
             InitializeComponent();
-            Account=new Account();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
