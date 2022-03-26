@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>Book</Name>
         <Access>Public</Access>
-        <Location left="647" top="385" />
+        <Location left="1646" top="570" />
         <Size width="717" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int _pages</Member>
@@ -24,7 +24,7 @@
       <Entity type="Class">
         <Name>Movie</Name>
         <Access>Public</Access>
-        <Location left="1428" top="412" />
+        <Location left="2394" top="452" />
         <Size width="849" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _subtitled</Member>
@@ -43,7 +43,7 @@
       <Entity type="Class">
         <Name>Item</Name>
         <Access>Public</Access>
-        <Location left="1293" top="32" />
+        <Location left="1877" top="34" />
         <Size width="518" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">protected string _name</Member>
@@ -64,7 +64,7 @@
       <Entity type="Class">
         <Name>Genre</Name>
         <Access>Public</Access>
-        <Location left="2010" top="61" />
+        <Location left="2582" top="51" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _genreName</Member>
@@ -74,32 +74,9 @@
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Library</Name>
-        <Access>Public</Access>
-        <Location left="14" top="28" />
-        <Size width="162" height="247" />
-        <Collapsed>False</Collapsed>
-        <Member type="Method">public void DeleteItem()</Member>
-        <Member type="Method">public void DeleteReservation()</Member>
-        <Member type="Method">public void DeleteAccount()</Member>
-        <Member type="Method">public void DeleteEvent()</Member>
-        <Member type="Method">public void DeleteWorkingHour()</Member>
-        <Member type="Method">public void DeleteShedule()</Member>
-        <Member type="Method">public void AddBook()</Member>
-        <Member type="Method">public void AddMovie()</Member>
-        <Member type="Method">public Book SearchBook()</Member>
-        <Member type="Method">public Movie SearchMovie()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
-      <Entity type="Comment">
-        <Text>Management class</Text>
-        <Location left="183" top="25" />
-        <Size width="125" height="50" />
-      </Entity>
-      <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="223" top="646" />
+        <Location left="556" top="894" />
         <Size width="753" height="332" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _fname</Member>
@@ -122,7 +99,7 @@
       <Entity type="Class">
         <Name>Worker</Name>
         <Access>Public</Access>
-        <Location left="260" top="1043" />
+        <Location left="466" top="1299" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _bankAccount</Member>
@@ -134,7 +111,7 @@
       <Entity type="Class">
         <Name>Position</Name>
         <Access>Public</Access>
-        <Location left="527" top="1024" />
+        <Location left="1086" top="1299" />
         <Size width="237" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _name</Member>
@@ -148,7 +125,7 @@
       <Entity type="Class">
         <Name>OpenHour</Name>
         <Access>Public</Access>
-        <Location left="10" top="1397" />
+        <Location left="10" top="2147" />
         <Size width="412" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int _week</Member>
@@ -164,7 +141,7 @@
       <Entity type="Class">
         <Name>Reservation</Name>
         <Access>Public</Access>
-        <Location left="424" top="151" />
+        <Location left="1125" top="367" />
         <Size width="449" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private DateTime _startDate</Member>
@@ -179,7 +156,7 @@
       <Entity type="Class">
         <Name>Event</Name>
         <Access>Public</Access>
-        <Location left="368" top="1643" />
+        <Location left="460" top="2099" />
         <Size width="659" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _eventName</Member>
@@ -198,7 +175,7 @@
       <Entity type="Class">
         <Name>Schedule</Name>
         <Access>Public</Access>
-        <Location left="813" top="1397" />
+        <Location left="1171" top="1591" />
         <Size width="405" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private DateTime _date</Member>
@@ -214,8 +191,93 @@
         <Text>Make use of correct arrows
 Add Crud and poly into it
 Split library class</Text>
-        <Location left="1030" top="663" />
+        <Location left="13" top="12" />
         <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>ItemManegement</Name>
+        <Access>Public</Access>
+        <Location left="868" top="12" />
+        <Size width="813" height="264" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
+        <Member type="Method">public void AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
+        <Member type="Method">public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
+        <Member type="Method">public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
+        <Member type="Method">public static void DeleteItem(int id)</Member>
+        <Member type="Method">public object SearchItem(string data, char searchOn)</Member>
+        <Member type="Method">public List&lt;Book&gt; GetAllItems()</Member>
+        <Member type="Method">public List&lt;Movie&gt; GetAllItems()</Member>
+        <Member type="Method">public void MakeNewGenre(string name)</Member>
+        <Member type="Method">public void CoupleGenreToItem(int genreId, int itemId)</Member>
+        <Member type="Method">public static void DeleteGenre(int id)</Member>
+        <Modifier>Abstract</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>ReservationManegement</Name>
+        <Access>Public</Access>
+        <Location left="403" top="225" />
+        <Size width="428" height="221" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void MakeReservation(int itemId, int accountId, DateTime StartDate)</Member>
+        <Member type="Method">public static void DeleteReservation(int id)</Member>
+        <Member type="Method">public bool ExtendReservation(int reservationId)</Member>
+        <Member type="Method">public List&lt;Reservation&gt; GetReservations()</Member>
+        <Member type="Method">public List&lt;Reservation&gt; GetReservation(int accountId)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>AccountManegement</Name>
+        <Access>Public</Access>
+        <Location left="10" top="604" />
+        <Size width="934" height="281" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void AddAccount(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
+        <Member type="Method">public void UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
+        <Member type="Method">public static void DeleteAccount(int id)</Member>
+        <Member type="Method">public void MakeAccountWorker(int accountId, int jobId, string bankAccount, string serviceNumber, double salary)</Member>
+        <Member type="Method">public void ChangeWorkerJob(int accountId, int positionId)</Member>
+        <Member type="Method">public void UpdateWorker(int accountId, string bankAccount, double salary)</Member>
+        <Member type="Method">public static void DeleteWorker(int accountId)</Member>
+        <Member type="Method">public void AddPosition(string name, double salary)</Member>
+        <Member type="Method">public void UpdatePosition(int id, string name, double salary)</Member>
+        <Member type="Method">public List&lt;Account&gt; GetAllAccount()</Member>
+        <Member type="Method">public List&lt;Worker&gt; GetAccounts()</Member>
+        <Member type="Method">public List&lt;Position&gt; GetPositions()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>LibraryManegement</Name>
+        <Access>Public</Access>
+        <Location left="10" top="1774" />
+        <Size width="420" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void MakeSpecialOpenHour(int week, int day, TimeSpan open, TimeSpan close)</Member>
+        <Member type="Method">public void ChangeOpenHour(int id, TimeSpan open, TimeSpan close)</Member>
+        <Member type="Method">public static void DeleteOpenhour(int id)</Member>
+        <Member type="Method">public List&lt;OpenHour&gt; GetOpeningHours()</Member>
+        <Member type="Method">public void NewEvent(string name, DateTime date, double cost, TimeSpan openTime, TimeSpan closeTime, string description, string type)</Member>
+        <Member type="Method">public void UpdateEvent(int eventId, string name, DateTime date, double cost, TimeSpan openTime, TimeSpan closeTime, string description, string type)</Member>
+        <Member type="Method">public static void DeleteEvent(int eventId)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>Class for everythin inside of the library </Text>
+        <Location left="10" top="1711" />
+        <Size width="280" height="50" />
+      </Entity>
+      <Entity type="Class">
+        <Name>ScheduleManagement</Name>
+        <Access>Public</Access>
+        <Location left="1166" top="1891" />
+        <Size width="624" height="162" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void NewSchedule(int workerId, DateTime scheduleDate, TimeSpan beginHour, TimeSpan endHour)</Member>
+        <Member type="Method">public void ChangeSchedule(int scheduleId, int workerId, TimeSpan beginHour, TimeSpan endHour)</Member>
+        <Member type="Method">public static void DeleteSchedule(int id)</Member>
+        <Member type="Method">public List&lt;Shedule&gt; GetAllSchedules()</Member>
+        <Member type="Method">public List&lt;Schedule&gt; GetAllSchedules(int accountId)</Member>
+        <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
@@ -223,20 +285,20 @@ Split library class</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1510</X>
-          <Y>387</Y>
+          <X>2488</X>
+          <Y>420</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>1446</X>
-          <Y>356</Y>
+          <X>2318</X>
+          <Y>384</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="0" second="2">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1446</X>
-          <Y>357</Y>
+          <X>2318</X>
+          <Y>366</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
@@ -248,13 +310,13 @@ Split library class</Text>
         <EndRole>-_genres</EndRole>
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="7" second="8">
+      <Relationship type="Association" first="5" second="6">
         <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>448</X>
-          <Y>1052</Y>
+          <X>654</X>
+          <Y>1308</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -262,69 +324,30 @@ Split library class</Text>
         <StartMultiplicity>*</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Generalization" first="7" second="6">
+      <Relationship type="Generalization" first="5" second="4">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
       </Relationship>
-      <Relationship type="Association" first="4" second="2">
+      <Relationship type="Association" first="8" second="2">
         <Label>has</Label>
         <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>205</X>
-          <Y>105</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>-_items</EndRole>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>0..*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="4" second="6">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>167</X>
-          <Y>303</Y>
-        </BendPoint>
+        <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>198</X>
-          <Y>672</Y>
+          <X>1898</X>
+          <Y>403</Y>
         </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>_accounts</EndRole>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="4" second="10">
-        <Label>has</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <EndRole>_reservations</EndRole>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>0..*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="10" second="2">
-        <Label>has</Label>
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <EndRole>_item</EndRole>
         <StartMultiplicity>*</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="10" second="6">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="8" second="4">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>483</X>
-          <Y>621</Y>
+          <X>1267</X>
+          <Y>869</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -332,64 +355,75 @@ Split library class</Text>
         <StartMultiplicity>*</StartMultiplicity>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
-      <Relationship type="Association" first="4" second="9">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>25</X>
-          <Y>300</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="4" second="11">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>67</X>
-          <Y>300</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>355</X>
-          <Y>1367</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="4" second="12">
-        <StartOrientation>Vertical</StartOrientation>
-        <EndOrientation>Vertical</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>97</X>
-          <Y>1317</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>837</X>
-          <Y>1372</Y>
-        </BendPoint>
-        <Direction>Unidirectional</Direction>
-        <AssociationType>Association</AssociationType>
-        <StartMultiplicity>1</StartMultiplicity>
-        <EndMultiplicity>*</EndMultiplicity>
-      </Relationship>
-      <Relationship type="Association" first="12" second="7">
-        <Label>
-        </Label>
+      <Relationship type="Association" first="10" second="5">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>488</X>
-          <Y>1285</Y>
+          <X>694</X>
+          <Y>1541</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
         <EndRole>_workers</EndRole>
         <StartMultiplicity>1</StartMultiplicity>
         <EndMultiplicity>*</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="12" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+        <EndMultiplicity>0..1</EndMultiplicity>
+      </Relationship>
+      <Relationship type="Association" first="15" second="7">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>85</X>
+          <Y>2121</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="15" second="9">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="14" second="4">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>161</X>
+          <Y>969</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>499</X>
+          <Y>1011</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="13" second="8">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>677</X>
+          <Y>573</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="17" second="10">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>
