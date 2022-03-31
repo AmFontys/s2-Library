@@ -33,13 +33,13 @@
             this.btnCatalogue = new System.Windows.Forms.Button();
             this.btnEmployee = new System.Windows.Forms.Button();
             this.panelRowMenu = new System.Windows.Forms.Panel();
+            this.btnAccount = new System.Windows.Forms.Button();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblManagementLevel = new System.Windows.Forms.Label();
             this.panelContent = new System.Windows.Forms.Panel();
             this.panelContentHolder = new System.Windows.Forms.Panel();
             this.panelHeader = new System.Windows.Forms.Panel();
-            this.btnAccount = new System.Windows.Forms.Button();
             this.panelRowMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelContent.SuspendLayout();
@@ -48,62 +48,66 @@
             // 
             // btnOpeningHour
             // 
+            this.btnOpeningHour.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(13)))), ((int)(((byte)(18)))));
             this.btnOpeningHour.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnOpeningHour.FlatAppearance.BorderSize = 0;
             this.btnOpeningHour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpeningHour.Font = new System.Drawing.Font("Garet Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnOpeningHour.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOpeningHour.ForeColor = System.Drawing.Color.White;
             this.btnOpeningHour.Location = new System.Drawing.Point(792, 0);
             this.btnOpeningHour.Name = "btnOpeningHour";
             this.btnOpeningHour.Size = new System.Drawing.Size(232, 67);
             this.btnOpeningHour.TabIndex = 6;
             this.btnOpeningHour.Text = "Opening Hours";
-            this.btnOpeningHour.UseVisualStyleBackColor = true;
+            this.btnOpeningHour.UseVisualStyleBackColor = false;
             this.btnOpeningHour.Click += new System.EventHandler(this.btnOpeningHour_Click);
             // 
             // btnEvent
             // 
+            this.btnEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(13)))), ((int)(((byte)(18)))));
             this.btnEvent.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnEvent.FlatAppearance.BorderSize = 0;
             this.btnEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEvent.Font = new System.Drawing.Font("Garet Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEvent.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEvent.ForeColor = System.Drawing.Color.White;
             this.btnEvent.Location = new System.Drawing.Point(528, 0);
             this.btnEvent.Name = "btnEvent";
             this.btnEvent.Size = new System.Drawing.Size(264, 67);
             this.btnEvent.TabIndex = 5;
             this.btnEvent.Text = "Event";
-            this.btnEvent.UseVisualStyleBackColor = true;
+            this.btnEvent.UseVisualStyleBackColor = false;
             this.btnEvent.Click += new System.EventHandler(this.btnEvent_Click);
             // 
             // btnCatalogue
             // 
+            this.btnCatalogue.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(13)))), ((int)(((byte)(18)))));
             this.btnCatalogue.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCatalogue.FlatAppearance.BorderSize = 0;
             this.btnCatalogue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCatalogue.Font = new System.Drawing.Font("Garet Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnCatalogue.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCatalogue.ForeColor = System.Drawing.Color.White;
             this.btnCatalogue.Location = new System.Drawing.Point(264, 0);
             this.btnCatalogue.Name = "btnCatalogue";
             this.btnCatalogue.Size = new System.Drawing.Size(264, 67);
             this.btnCatalogue.TabIndex = 4;
             this.btnCatalogue.Text = "Catalogue";
-            this.btnCatalogue.UseVisualStyleBackColor = true;
+            this.btnCatalogue.UseVisualStyleBackColor = false;
             this.btnCatalogue.Click += new System.EventHandler(this.btnCatalogue_Click);
             // 
             // btnEmployee
             // 
+            this.btnEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(13)))), ((int)(((byte)(18)))));
             this.btnEmployee.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnEmployee.FlatAppearance.BorderSize = 0;
             this.btnEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEmployee.Font = new System.Drawing.Font("Garet Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnEmployee.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEmployee.ForeColor = System.Drawing.Color.White;
             this.btnEmployee.Location = new System.Drawing.Point(0, 0);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(264, 67);
             this.btnEmployee.TabIndex = 3;
             this.btnEmployee.Text = "Employees";
-            this.btnEmployee.UseVisualStyleBackColor = true;
+            this.btnEmployee.UseVisualStyleBackColor = false;
             this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // panelRowMenu
@@ -119,6 +123,22 @@
             this.panelRowMenu.Name = "panelRowMenu";
             this.panelRowMenu.Size = new System.Drawing.Size(1266, 67);
             this.panelRowMenu.TabIndex = 0;
+            // 
+            // btnAccount
+            // 
+            this.btnAccount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(13)))), ((int)(((byte)(18)))));
+            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAccount.FlatAppearance.BorderSize = 0;
+            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccount.Font = new System.Drawing.Font("Good Times", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnAccount.ForeColor = System.Drawing.Color.White;
+            this.btnAccount.Location = new System.Drawing.Point(1024, 0);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(239, 67);
+            this.btnAccount.TabIndex = 7;
+            this.btnAccount.Text = "Accounts";
+            this.btnAccount.UseVisualStyleBackColor = false;
+            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // lblWelcome
             // 
@@ -147,11 +167,11 @@
             // lblManagementLevel
             // 
             this.lblManagementLevel.AutoSize = true;
-            this.lblManagementLevel.Font = new System.Drawing.Font("Garet Bold", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblManagementLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.lblManagementLevel.Font = new System.Drawing.Font("Good Times", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblManagementLevel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(122)))), ((int)(((byte)(165)))));
             this.lblManagementLevel.Location = new System.Drawing.Point(12, 9);
             this.lblManagementLevel.Name = "lblManagementLevel";
-            this.lblManagementLevel.Size = new System.Drawing.Size(445, 49);
+            this.lblManagementLevel.Size = new System.Drawing.Size(591, 35);
             this.lblManagementLevel.TabIndex = 7;
             this.lblManagementLevel.Text = "General management";
             // 
@@ -175,7 +195,7 @@
             // 
             // panelHeader
             // 
-            this.panelHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(222)))), ((int)(((byte)(89)))));
+            this.panelHeader.BackColor = System.Drawing.Color.BurlyWood;
             this.panelHeader.Controls.Add(this.lblWelcome);
             this.panelHeader.Controls.Add(this.pictureBox2);
             this.panelHeader.Controls.Add(this.lblManagementLevel);
@@ -184,21 +204,6 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1266, 125);
             this.panelHeader.TabIndex = 3;
-            // 
-            // btnAccount
-            // 
-            this.btnAccount.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAccount.FlatAppearance.BorderSize = 0;
-            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccount.Font = new System.Drawing.Font("Garet Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAccount.ForeColor = System.Drawing.Color.White;
-            this.btnAccount.Location = new System.Drawing.Point(1024, 0);
-            this.btnAccount.Name = "btnAccount";
-            this.btnAccount.Size = new System.Drawing.Size(239, 67);
-            this.btnAccount.TabIndex = 7;
-            this.btnAccount.Text = "Accounts";
-            this.btnAccount.UseVisualStyleBackColor = true;
-            this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
             // MainForm
             // 
