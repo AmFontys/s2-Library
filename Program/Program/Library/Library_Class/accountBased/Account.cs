@@ -7,7 +7,7 @@ using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Library.Class
+namespace Library_Class
 {
 	public class Account
 	{
@@ -130,30 +130,52 @@ namespace Library.Class
 			return _fname + " " +_lname;
 		}
 
-		public static bool Login(string fname, string lname, string password)
+		public static bool Login(string fname, string lname, string password, out string role)
 		{
-
+			role = "User";
 			bool exist = ExistingUsername(fname, lname, out string key);
 			if (exist)
 			{
 				byte[] keyBytes = Convert.FromBase64String(key);
 				password = GeneratePassword(keyBytes, password);
-				bool validPassword = CompareGivenPassword(fname, lname, password);
-				if (validPassword) return true;
+				bool validPassword = CompareGivenPassword(fname, lname, password,out string id);
+				if (validPassword)
+				{
+					role = CheckAccountLevel(id);
+					return true;
+				}
 				return false;
 			}
 			return false;
 		}
 
-		private static bool CompareGivenPassword(string fname, string lname, string password)
+        private static string CheckAccountLevel(string id)
+        {
+			MySqlCommand command = new MySqlCommand();
+			command.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
+			command.Parameters.Add(new MySqlParameter("@id", id));
+			DataSet set = DatabaseExecuter.ExecuteReader(command);
+            if (set.Tables[0].Rows.Count > 0)
+            {
+				return (string)set.Tables[0].Rows[0][0];
+            }
+			return "User";
+        }
+
+        private static bool CompareGivenPassword(string fname, string lname, string password,out string id)
 		{
+			id = "";
 			MySqlCommand _command = new MySqlCommand();
-			_command.CommandText = "Select * From account where FirstName=@fname and LastName=@lname and Password=@pass";
+			_command.CommandText = "Select AccountID From account where FirstName=@fname and LastName=@lname and Password=@pass";
 			_command.Parameters.Add(new MySqlParameter("@fname", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));
 			_command.Parameters.Add(new MySqlParameter("@pass", password));
-			if (DatabaseExecuter.ExecuteReader(_command).Tables[0].Rows.Count > 0)
+			DataSet set = DatabaseExecuter.ExecuteReader(_command);
+			if (set.Tables[0].Rows.Count > 0)
+            {
+				id = Convert.ToString( set.Tables[0].Rows[0][0]);
 				return true;
+            }
 			else return false;
 		}
 
@@ -164,7 +186,9 @@ namespace Library.Class
 			_command.Parameters.Add(new MySqlParameter("@name", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));
 			DataSet set = DatabaseExecuter.ExecuteReader(_command);
+			key = "";
 
+			if (set.Tables.Count <0) return false;
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				key = set.Tables[0].Rows[0][0].ToString();
@@ -172,7 +196,6 @@ namespace Library.Class
 			}
 			else
 			{
-				key = "";
 				return false;
 			}
 		}

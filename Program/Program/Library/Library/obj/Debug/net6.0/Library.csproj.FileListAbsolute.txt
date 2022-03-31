@@ -73,3 +73,7 @@ C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project al
 C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\obj\Debug\net6.0\Library.csproj.CopyComplete
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library_Class.dll
+C:\Users\Arenco\OneDrive - ROC Gilde Opleidingen\Documenten\Fontyz\S2\Project alone\s2-cb02_library\Program\Program\Library\Library\bin\Debug\net6.0\Library_Class.pdb

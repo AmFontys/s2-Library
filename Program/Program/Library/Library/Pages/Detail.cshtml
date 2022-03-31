@@ -7,14 +7,16 @@
     My details page
 }
 
-<div class="container">
+@if (User.IsInRole("Management") || User.IsInRole("Employee"))
+{
+    <div class="container">
         <a asp-area="" asp-page="/Detail/Management/Management" class="redirection">
           <div class='banner-img'>
             <h1 class="name">Management</h1>
             <p class="description">Only Management </p>
           </div>
         </a></div>
-  
+}
       <div class="container">
         <a asp-area="" asp-page="/Detail/User/Index" class="redirection">
           <div class='banner-img'>

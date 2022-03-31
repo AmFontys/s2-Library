@@ -1,4 +1,4 @@
-using Library.Class;
+using Library_Class;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;

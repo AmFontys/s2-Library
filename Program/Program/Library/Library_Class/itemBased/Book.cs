@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Library.Class
+namespace Library_Class
 {
 	public class Book : Item
 	{
@@ -23,25 +23,25 @@ namespace Library.Class
 		}
 
 		public int GetPages()
-        {
+		{
 			return _pages;
-        }
+		}
 
 		public List<Genre> GetGenre()
-        {
+		{
 			List<Genre> genreList = new List<Genre>();
 
 			return genreList;
-        }
+		}
 
-		public Book(int page, string author, string publisher,int id, string name, string ISBN, 
-			string language, string description, double cost) : 
+		public Book(int page, string author, string publisher, int id, string name, string ISBN,
+			string language, string description, double cost) :
 			base(id, name, ISBN, language, description, cost)
 		{
-			_pages=page;
-			_author=author;
-			_publisher=publisher;
-			_name=name;
+			_pages = page;
+			_author = author;
+			_publisher = publisher;
+			_name = name;
 		}
 
 		public void UpdateItem(string name, string isbn, string language, string description,
@@ -78,38 +78,38 @@ namespace Library.Class
 				return new Book(pages, author, publisher, id, name, ISBN, language, description, cost);
 			}
 			catch (Exception ex)
-            {
-				Console.WriteLine("Error make book "+ex.Message);
+			{
+				Console.WriteLine("Error make book " + ex.Message);
 				return null;
-            }			
+			}
 		}
 
 		public static List<Book> GetAllBooks()
-        {
+		{
 			List<Book> booklist = new();
 			MySqlCommand command = new MySqlCommand();
 			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
-                "FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
+					"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
 			DataSet ds = DatabaseExecuter.ExecuteReader(command);
 			if (ds.Tables.Count > 0)
 			{
 				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
 				{
-					booklist.Add(makeBook(ds,i));
+					booklist.Add(makeBook(ds, i));
 				}
 			}
 			return booklist;
-        }
+		}
 
 		public static Book SearchBookByID(int id)
-        {
+		{
 			MySqlCommand command = new MySqlCommand();
 			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
 				"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID` WHERE `bookinfo`.ItemID=@Id";
 			command.Parameters.Add(new MySqlParameter("@Id", id));
 			DataSet ds = DatabaseExecuter.ExecuteReader(command);
-			return makeBook(ds,0);
-        }
+			return makeBook(ds, 0);
+		}
 
 	}
 }

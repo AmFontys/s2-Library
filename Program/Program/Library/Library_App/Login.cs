@@ -1,4 +1,4 @@
-using Library.Class;
+using Library_Class;
 using Library_App.Views;
 
 namespace Library_App
@@ -16,7 +16,7 @@ namespace Library_App
             string fname = txtFName.Text;
             string lname = txtLName.Text;
             string pass = txtPass.Text;
-            bool loginsuccesfull = Account.Login(fname, lname, pass);
+            bool loginsuccesfull = Account.Login(fname, lname, pass,out string role);
             if (loginsuccesfull)
             {
                 this.Hide();

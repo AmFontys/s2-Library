@@ -2,29 +2,30 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Library.Class
+namespace Library_Class
 {
-	public class Position
+	public class Schedule
 	{
-		private string _name;
-		private double _startSalary;
+		private DateTime _date;
+		private TimeSpan _beginHour;
+		private TimeSpan _endHour;
 
 		public override string ToString()
 		{
 			throw new NotImplementedException();
 		}
 
-		public double GetStartSalary()
+		public void AddWorker(Worker employee)
 		{
 			throw new NotImplementedException();
 		}
 
-		public string GetName()
+		public void DeleteWorker(Worker worker)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Position(string name, double startSalary)
+		public Schedule(DateTime date, TimeSpan beginHour, TimeSpan endHour)
 		{
 			throw new NotImplementedException();
 		}

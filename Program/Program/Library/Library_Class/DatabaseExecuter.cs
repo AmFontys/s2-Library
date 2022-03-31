@@ -1,14 +1,18 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Data;
 
-namespace Library.Class
-{
+namespace Library_Class
+{  
+
     public class DatabaseExecuter
     {
+        private static MySqlConnection getconnection()
+        {
+           return new MySqlConnection(@"Server=studmysql01.fhict.local;Uid=dbi479450;Database=dbi479450;Pwd=PHPAdmin;");
+        }
         public static bool ExecuteCommand(MySqlCommand command)
         {
-            MySqlConnection _con = new MySqlConnection(@"Server=studmysql01.fhict.local;Uid=dbi479450;Database=dbi479450;Pwd=PHPAdmin;");
-
+            MySqlConnection _con = getconnection();
             try
             {
                 if (_con.State == ConnectionState.Open)
@@ -45,7 +49,7 @@ namespace Library.Class
 
         public static DataSet ExecuteReader(MySqlCommand command)
         {
-            MySqlConnection _con = new MySqlConnection(@"Server=studmysql01.fhict.local;Uid=dbi479450;Database=dbi479450;Pwd=PHPAdmin;");
+            MySqlConnection _con = getconnection();
             MySqlDataAdapter _DataAdapter = null;
             DataSet lDataSet = new DataSet();
             try

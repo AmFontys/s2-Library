@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 
-namespace Library.Class
+namespace Library_Class
 {
 	public class Movie : Item
 	{

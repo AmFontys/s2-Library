@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2fFZmnSHxqJzMc6k5qIYdFtjQUkDkSLpg7LYNuPSqkXqvne3Kp+NGTXt8Tgt6wemf8Ohbf2NQMp8gx7SfpPsCQ==",
+  "dgSpecHash": "njj9lAil8TRNgE+cEus5lRDXGMci60hl45Na3a99p1l/rAwmrX7ml7okm44Kwi1a9WPBKQP+9qdpnNQIAbpxzA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Arenco\\OneDrive - ROC Gilde Opleidingen\\Documenten\\Fontyz\\S2\\Project alone\\s2-cb02_library\\Program\\Program\\Library\\Library\\Library.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,8 @@
     "C:\\Users\\Arenco\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\Arenco\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\Arenco\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\Arenco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",
+    "C:\\Users\\Arenco\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.3\\microsoft.aspnetcore.cryptography.keyderivation.6.0.3.nupkg.sha512",
     "C:\\Users\\Arenco\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Arenco\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Arenco\\.nuget\\packages\\mysql.data\\8.0.28\\mysql.data.8.0.28.nupkg.sha512",
