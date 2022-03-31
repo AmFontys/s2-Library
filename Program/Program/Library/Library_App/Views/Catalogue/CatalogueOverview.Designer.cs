@@ -34,9 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.lbView = new System.Windows.Forms.ListBox();
             this.btnMovieLoad = new System.Windows.Forms.Button();
             this.btnBookLoad = new System.Windows.Forms.Button();
+            this.lbView = new System.Windows.Forms.ListBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -47,7 +47,7 @@
             // 
             this.lblSectionName.AutoSize = true;
             this.lblSectionName.Font = new System.Drawing.Font("Good Times", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblSectionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.lblSectionName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(122)))), ((int)(((byte)(165)))));
             this.lblSectionName.Location = new System.Drawing.Point(6, 36);
             this.lblSectionName.Name = "lblSectionName";
             this.lblSectionName.Size = new System.Drawing.Size(454, 35);
@@ -56,7 +56,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(29)))), ((int)(((byte)(49)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
@@ -71,7 +71,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(29)))), ((int)(((byte)(49)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
@@ -96,7 +96,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(29)))), ((int)(((byte)(49)))));
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
@@ -120,19 +120,9 @@
             this.panel3.Size = new System.Drawing.Size(1192, 130);
             this.panel3.TabIndex = 18;
             // 
-            // lbView
-            // 
-            this.lbView.FormattingEnabled = true;
-            this.lbView.ItemHeight = 20;
-            this.lbView.Location = new System.Drawing.Point(63, 133);
-            this.lbView.Name = "lbView";
-            this.lbView.Size = new System.Drawing.Size(1180, 224);
-            this.lbView.TabIndex = 23;
-            this.lbView.SelectedIndexChanged += new System.EventHandler(this.lbView_SelectedIndexChanged);
-            // 
             // btnMovieLoad
             // 
-            this.btnMovieLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.btnMovieLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(29)))), ((int)(((byte)(49)))));
             this.btnMovieLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMovieLoad.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMovieLoad.ForeColor = System.Drawing.Color.White;
@@ -146,7 +136,7 @@
             // 
             // btnBookLoad
             // 
-            this.btnBookLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.btnBookLoad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(29)))), ((int)(((byte)(49)))));
             this.btnBookLoad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBookLoad.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBookLoad.ForeColor = System.Drawing.Color.White;
@@ -157,6 +147,16 @@
             this.btnBookLoad.Text = "Load Books";
             this.btnBookLoad.UseVisualStyleBackColor = false;
             this.btnBookLoad.Click += new System.EventHandler(this.btnBookLoad_Click);
+            // 
+            // lbView
+            // 
+            this.lbView.FormattingEnabled = true;
+            this.lbView.ItemHeight = 20;
+            this.lbView.Location = new System.Drawing.Point(63, 133);
+            this.lbView.Name = "lbView";
+            this.lbView.Size = new System.Drawing.Size(1180, 224);
+            this.lbView.TabIndex = 23;
+            this.lbView.SelectedIndexChanged += new System.EventHandler(this.lbView_SelectedIndexChanged);
             // 
             // panel4
             // 
