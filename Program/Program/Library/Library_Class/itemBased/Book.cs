@@ -88,9 +88,11 @@ namespace Library_Class
 		{
 			List<Book> booklist = new();
 			MySqlCommand command = new MySqlCommand();
+			DBConnection db = new DBConnection();
+
 			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
 					"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
-			DataSet ds = DatabaseExecuter.ExecuteReader(command);
+			DataSet ds = db.ExecuteReader(command);
 			if (ds.Tables.Count > 0)
 			{
 				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -104,10 +106,12 @@ namespace Library_Class
 		public static Book SearchBookByID(int id)
 		{
 			MySqlCommand command = new MySqlCommand();
+			DBConnection dBConnection = new DBConnection();
+
 			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
 				"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID` WHERE `bookinfo`.ItemID=@Id";
 			command.Parameters.Add(new MySqlParameter("@Id", id));
-			DataSet ds = DatabaseExecuter.ExecuteReader(command);
+			DataSet ds = dBConnection.ExecuteReader(command);
 			return makeBook(ds, 0);
 		}
 

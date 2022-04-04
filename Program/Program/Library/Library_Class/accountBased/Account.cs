@@ -23,8 +23,6 @@ namespace Library_Class
 		private string _keyword;		
 		private string _card;
 
-
-		MySqlCommand _command = new MySqlCommand();
 		public string GetKeyword()
 		{
 			return _keyword;
@@ -69,9 +67,11 @@ namespace Library_Class
 		public static bool checkGeneratedCard(string card)
         {
 			MySqlCommand command = new();
+			DBConnection db = new DBConnection();
+
 			command.CommandText = "Select * From account where CardID=@card";
 			command.Parameters.Add(new MySqlParameter("@card", card));
-			DataSet data = DatabaseExecuter.ExecuteReader(command);
+			DataSet data = db.ExecuteReader(command);
 			return (data.Tables[0].Rows.Count > 0);
         }
 

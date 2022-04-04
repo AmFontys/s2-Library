@@ -34,9 +34,11 @@ namespace Library_Class
 		private static string CheckAccountLevel(string id)
 		{
 			MySqlCommand command = new MySqlCommand();
+			DBConnection dBConnection= new DBConnection();
+
 			command.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
 			command.Parameters.Add(new MySqlParameter("@id", id));
-			DataSet set = DatabaseExecuter.ExecuteReader(command);
+			DataSet set = dBConnection.ExecuteReader(command);
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				return (string)set.Tables[0].Rows[0][0];
@@ -48,11 +50,13 @@ namespace Library_Class
 		{
 			id = "";
 			MySqlCommand _command = new MySqlCommand();
+			DBConnection dBConnection = new DBConnection();
+
 			_command.CommandText = "Select AccountID From account where FirstName=@fname and LastName=@lname and Password=@pass";
 			_command.Parameters.Add(new MySqlParameter("@fname", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));
 			_command.Parameters.Add(new MySqlParameter("@pass", password));
-			DataSet set = DatabaseExecuter.ExecuteReader(_command);
+			DataSet set = dBConnection.ExecuteReader(_command);
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				id = Convert.ToString(set.Tables[0].Rows[0][0]);
@@ -64,10 +68,12 @@ namespace Library_Class
 		private static bool ExistingUsername(string fname, string lname, out string key)
 		{
 			MySqlCommand _command = new MySqlCommand();
+			DBConnection dBConnection= new DBConnection();
+
 			_command.CommandText = "Select Keyword From account where FirstName=@name AND LastName=@lname";
 			_command.Parameters.Add(new MySqlParameter("@name", fname));
 			_command.Parameters.Add(new MySqlParameter("@lname", lname));
-			DataSet set = DatabaseExecuter.ExecuteReader(_command);
+			DataSet set = dBConnection.ExecuteReader(_command);
 			key = "";
 
 			if (set.Tables.Count < 0) return false;
@@ -85,6 +91,8 @@ namespace Library_Class
         #region adding an account
         public static bool AddAccount(string fname, string lname, string email, string telephone, string street, string houseNum, string zipcode, string city, string password)
 		{
+			DBConnection dBConnection = new DBConnection();
+
 			byte[] salt = Account.GenerateKeyWord();
 			string keyword = Convert.ToBase64String(salt);
 			string pass = Account.GeneratePassword(salt, password);
@@ -109,14 +117,16 @@ namespace Library_Class
 			sql.Parameters.Add(new MySqlParameter("@Password", pass));
 			sql.Parameters.Add(new MySqlParameter("@Key", keyword));
 			sql.Parameters.Add(new MySqlParameter("@CardID", card));
-			return DatabaseExecuter.ExecuteCommand(sql);
+			return dBConnection.ExecuteNoNQuery(sql);
 		}
 		private static bool checkIfAlreadyExist(string mail)
 		{
 			MySqlCommand cmd = new MySqlCommand();
+			DBConnection dBConnection = new DBConnection();
+
 			cmd.CommandText = "Select Email from account where Email=@mail";
 			cmd.Parameters.Add(new MySqlParameter("@mail", mail));
-			DataSet set = DatabaseExecuter.ExecuteReader(cmd);
+			DataSet set = dBConnection.ExecuteReader(cmd);
 			if (set.Tables[0].Rows.Count > 0)
 				return true;
 			else return false;

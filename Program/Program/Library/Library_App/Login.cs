@@ -16,7 +16,7 @@ namespace Library_App
             string fname = txtFName.Text;
             string lname = txtLName.Text;
             string pass = txtPass.Text;
-            bool loginsuccesfull = Account.Login(fname, lname, pass,out string role);
+            bool loginsuccesfull = AccountManagement.Login(fname, lname, pass,out string role,out string id);
             if (loginsuccesfull)
             {
                 this.Hide();

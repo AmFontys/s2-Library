@@ -76,7 +76,7 @@
         <Name>Account</Name>
         <Access>Public</Access>
         <Location left="556" top="894" />
-        <Size width="753" height="332" />
+        <Size width="753" height="383" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _fname</Member>
         <Member type="Field">private string _lname</Member>
@@ -92,6 +92,10 @@
         <Member type="Method">public string GetKeyword()</Member>
         <Member type="Constructor">public Account(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
         <Member type="Method">public override string ToString()</Member>
+        <Member type="Method">private static string GeneratePassword(byte[] key, string password)</Member>
+        <Member type="Method">private string GenerateCard()</Member>
+        <Member type="Method">private bool checkGeneratedCard(string card)</Member>
+        <Member type="Method">private byte[] GenerateKeyWord()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -337,8 +341,6 @@ use the DBConnection to connect to the database</Text>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="7" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -352,8 +354,6 @@ use the DBConnection to connect to the database</Text>
         <EndMultiplicity>1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="8" second="5">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -367,6 +367,8 @@ use the DBConnection to connect to the database</Text>
         <EndMultiplicity>*</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="10" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
@@ -374,8 +376,6 @@ use the DBConnection to connect to the database</Text>
         <EndMultiplicity>0..1</EndMultiplicity>
       </Relationship>
       <Relationship type="Association" first="12" second="4">
-        <Label>
-        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -390,8 +390,6 @@ use the DBConnection to connect to the database</Text>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="11" second="7">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -402,20 +400,22 @@ use the DBConnection to connect to the database</Text>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="13" second="8">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="14" second="3">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Dependency" first="11" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -424,6 +424,8 @@ use the DBConnection to connect to the database</Text>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="11" second="4">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -436,6 +438,8 @@ use the DBConnection to connect to the database</Text>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="18" second="16">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
