@@ -46,7 +46,7 @@ namespace Library_Class
 			_card = GenerateCard();
 		}
 
-        private static string GeneratePassword(byte[] key, string password)
+        public static string GeneratePassword(byte[] key, string password)
         {
 			string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
 			password: password,
@@ -57,7 +57,7 @@ namespace Library_Class
 			return hashed;
         }
 
-        private string GenerateCard()
+        public static string GenerateCard()
         {
 			Random rng = new Random();
 			string card = rng.Next(100000, 999999).ToString();
@@ -66,7 +66,7 @@ namespace Library_Class
 			return card;
         }
 
-		private bool checkGeneratedCard(string card)
+		public static bool checkGeneratedCard(string card)
         {
 			MySqlCommand command = new();
 			command.CommandText = "Select * From account where CardID=@card";
@@ -75,7 +75,7 @@ namespace Library_Class
 			return (data.Tables[0].Rows.Count > 0);
         }
 
-        private byte[] GenerateKeyWord()
+        public static byte[] GenerateKeyWord()
         {			
 			byte[] salt = new byte[128 / 8];
 			using (var rngCsp = new RNGCryptoServiceProvider())
@@ -85,119 +85,10 @@ namespace Library_Class
 			return salt;
         }
 
-		public bool addAccount()
-        {
-			bool exist = checkIfAlreadyExist();
-			if (exist) return false;
-			MySqlCommand sql = new MySqlCommand();
-			sql.CommandText = @"INSERT INTO `account`" +
-                "(`Firstname`, `Lastname`, `Email`, `Telephone`, `Streetname`" +
-                ", `housenumber`, `Zipcode`, `City`, `Password`, `Keyword`, `CardID`) " +
-                "VALUES(@FirstName,@LastName,@Email,@Telephone,@Street," +
-                "@HouseNumber,@Zipcode,@City,@Password,@Key,@CardID)";
-			sql.Parameters.Add(new MySqlParameter("@FirstName", _fname));
-			sql.Parameters.Add(new MySqlParameter("@LastName", _lname));
-			sql.Parameters.Add(new MySqlParameter("@Email", _email));
-			sql.Parameters.Add(new MySqlParameter("@Telephone", _telephone));
-			sql.Parameters.Add(new MySqlParameter("@Street", _street));
-			sql.Parameters.Add(new MySqlParameter("@HouseNumber", _houseNum));
-			sql.Parameters.Add(new MySqlParameter("@Zipcode", _zipcode));
-			sql.Parameters.Add(new MySqlParameter("@City", _city));
-			sql.Parameters.Add(new MySqlParameter("@Password", _password));
-			sql.Parameters.Add(new MySqlParameter("@Key", _keyword));
-			sql.Parameters.Add(new MySqlParameter("@CardID",_card));
-			return DatabaseExecuter.ExecuteCommand(sql);
-		}
-
-        private bool checkIfAlreadyExist()
-        {
-            MySqlCommand cmd = new MySqlCommand();
-			cmd.CommandText = "Select Email from account where Email=@mail";
-			cmd.Parameters.Add(new MySqlParameter("@mail", _email));
-			DataSet set = DatabaseExecuter.ExecuteReader(cmd);
-            if (set.Tables[0].Rows.Count > 0)
-				return true;
-			else return false;
-        }
-
-        public void UpdateAccount()
-		{
-			throw new NotImplementedException();
-		}
-
 		public override string ToString()
 		{
-			return _fname + " " +_lname;
+			return _fname + " " + _lname;
 		}
 
-		public static bool Login(string fname, string lname, string password, out string role)
-		{
-			role = "User";
-			bool exist = ExistingUsername(fname, lname, out string key);
-			if (exist)
-			{
-				byte[] keyBytes = Convert.FromBase64String(key);
-				password = GeneratePassword(keyBytes, password);
-				bool validPassword = CompareGivenPassword(fname, lname, password,out string id);
-				if (validPassword)
-				{
-					role = CheckAccountLevel(id);
-					return true;
-				}
-				return false;
-			}
-			return false;
-		}
-
-        private static string CheckAccountLevel(string id)
-        {
-			MySqlCommand command = new MySqlCommand();
-			command.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
-			command.Parameters.Add(new MySqlParameter("@id", id));
-			DataSet set = DatabaseExecuter.ExecuteReader(command);
-            if (set.Tables[0].Rows.Count > 0)
-            {
-				return (string)set.Tables[0].Rows[0][0];
-            }
-			return "User";
-        }
-
-        private static bool CompareGivenPassword(string fname, string lname, string password,out string id)
-		{
-			id = "";
-			MySqlCommand _command = new MySqlCommand();
-			_command.CommandText = "Select AccountID From account where FirstName=@fname and LastName=@lname and Password=@pass";
-			_command.Parameters.Add(new MySqlParameter("@fname", fname));
-			_command.Parameters.Add(new MySqlParameter("@lname", lname));
-			_command.Parameters.Add(new MySqlParameter("@pass", password));
-			DataSet set = DatabaseExecuter.ExecuteReader(_command);
-			if (set.Tables[0].Rows.Count > 0)
-            {
-				id = Convert.ToString( set.Tables[0].Rows[0][0]);
-				return true;
-            }
-			else return false;
-		}
-
-		private static bool ExistingUsername(string fname, string lname, out string key)
-		{
-			MySqlCommand _command = new MySqlCommand();
-			_command.CommandText = "Select Keyword From account where FirstName=@name AND LastName=@lname";
-			_command.Parameters.Add(new MySqlParameter("@name", fname));
-			_command.Parameters.Add(new MySqlParameter("@lname", lname));
-			DataSet set = DatabaseExecuter.ExecuteReader(_command);
-			key = "";
-
-			if (set.Tables.Count <0) return false;
-			if (set.Tables[0].Rows.Count > 0)
-			{
-				key = set.Tables[0].Rows[0][0].ToString();
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
 	}
 }

@@ -26,12 +26,12 @@ namespace Library.Pages
 
         public IActionResult OnPost()
         {
-            bool loginsuccesfull = Account.Login(fname,lname,pass,out string role);
+            bool loginsuccesfull = AccountManagement.Login(fname,lname,pass,out string role,out string id);
             if (ModelState.IsValid & loginsuccesfull)
             {
                 List<Claim> claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.Name, fname+" "+lname));
-                claims.Add(new Claim("id", "1"));
+                claims.Add(new Claim("id", id));
                 claims.Add(new Claim(ClaimTypes.Role, role));
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
