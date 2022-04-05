@@ -9,20 +9,15 @@
  <form method="post" class="workerForm">
    <table class="formTable">
      <tr>
-       <td><label asp-for="fname">First name: </label>
-        <span class="form-required" asp-validation-for="fname">*</span>
+       <td><label asp-for="email">Email: </label>
+        <span class="form-required" asp-validation-for="email">*</span>
         </td>
-       <td><input type="text" required="required" aria-required="true" asp-for="fname" ></td>      
-     </tr>
-     <tr>
-       <td><label asp-for="lname">last name: </label>
-        <span class="form-required" asp-validation-for="lname">*</span></td>
-       <td><input type="text" required="required" aria-required="true" asp-for="lname" ></td>
-     </tr>
+       <td><input type="email" required="required" aria-required="true" asp-for="email" ></td>      
+     </tr>    
      <tr>
          <td><label asp-for="pass">Password: </label>
         <span class="form-required" asp-validation-for="pass">*</span></td>
-       <td><input type="text" required="required" aria-required="true" asp-for="pass" ></td>
+       <td><input type="password" required="required" aria-required="true" asp-for="pass" ></td>
      </tr>
      <tr>
        <td> <input type="submit" value="Submit" /></td>

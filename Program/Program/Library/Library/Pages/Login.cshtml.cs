@@ -10,9 +10,7 @@ namespace Library.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public string fname { get; set; }
-        [BindProperty]
-        public string lname { get; set; }
+        public string email { get; set; }
         [BindProperty]
         public string pass { get; set; }
 
@@ -21,16 +19,20 @@ namespace Library.Pages
 
         public void OnGet()
         {
+            if(User.Identity != null)
+            {
+                HttpContext.SignOutAsync();
+            }
         }
              
 
         public IActionResult OnPost()
         {
-            bool loginsuccesfull = AccountManagement.Login(fname,lname,pass,out string role,out string id);
+            bool loginsuccesfull = AccountManagement.Login(email,pass,out string role,out string id);
             if (ModelState.IsValid & loginsuccesfull)
             {
                 List<Claim> claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.Name, fname+" "+lname));
+                claims.Add(new Claim(ClaimTypes.Email,email));
                 claims.Add(new Claim("id", id));
                 claims.Add(new Claim(ClaimTypes.Role, role));
 

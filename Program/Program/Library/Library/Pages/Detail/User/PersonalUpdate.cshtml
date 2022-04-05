@@ -1,4 +1,42 @@
 ﻿@page
-@model Library.Pages.Detail.User.PersonalUpdateModel
+@model PersonalUpdateModel
 @{
 }
+<form method="post">
+    <label asp-for="Fname">First name: </label>
+    <span class="form-required" asp-validation-for="Fname">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="Fname" >
+
+    <label asp-for="Lname">Last name: </label>
+    <span class="form-required" asp-validation-for="Lname">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="Lname" >
+    
+    <label asp-for="Email">Email: </label>
+    <span class="form-required" asp-validation-for="Email">*</span>
+    <input type="email" required="required" aria-required="true" asp-for="Email" >
+
+    <label asp-for="Telephone">Telephone: </label>
+    <span class="form-required" asp-validation-for="Telephone">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="Telephone" >
+
+    <label asp-for="Street">Street Name: </label>
+    <span class="form-required" asp-validation-for="Street">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="Street" >
+
+    <label asp-for="HouseNum">House Number: </label>
+    <span class="form-required" asp-validation-for="HouseNum">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="HouseNum" >
+        
+    <label asp-for="Zipcode">Zipcode: </label>
+    <span class="form-required" asp-validation-for="Zipcode">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="Zipcode" >
+    
+    <label asp-for="City">City: </label>
+    <span class="form-required" asp-validation-for="City">*</span>
+    <input type="text" required="required" aria-required="true" asp-for="City" >
+
+    <label asp-for="Password">Password: </label>
+    <span class="form-required" asp-validation-for="Password">*</span>
+    <input type="password" required="required" aria-required="true" asp-for="Password" >
+
+</form>
