@@ -13,10 +13,9 @@ namespace Library_App
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string fname = txtFName.Text;
-            string lname = txtLName.Text;
+            string email = txtFName.Text;
             string pass = txtPass.Text;
-            bool loginsuccesfull = AccountManagement.Login(fname, lname, pass,out string role,out string id);
+            bool loginsuccesfull = AccountManagement.Login(email, pass,out string role,out string id);
             if (loginsuccesfull)
             {
                 this.Hide();

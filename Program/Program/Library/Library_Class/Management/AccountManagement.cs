@@ -139,30 +139,31 @@ namespace Library_Class
         public static bool UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
 		{
 			cmd = new MySqlCommand();
-			cmd.CommandText = "UPDATE `account` SET Firstname=@fname,`Lastname`=@lname,`Email`=@mail," +
-				"`Telephone`=@tel,`Streetname`=@street,`housenumber`=@houseNum,`Zipcode`=@zip," +
-				"`City`=@city ";
+			cmd.CommandText = "UPDATE `account` SET `Firstname`=@fname,`Lastname`=@lname,`Email`=@mail,"+
+				" `Telephone`=@tel,`Streetname`=@street,`housenumber`=@houseNum,`Zipcode`=@zip," +
+				" `City`=@city ";
 
-			if (password != "")
+			if (password != "" & password !=null)
             {
 				byte[] salt=Account.GenerateKeyWord();
 				string keyword = Convert.ToBase64String(salt);
 				password= Account.GeneratePassword(salt, password);
 				cmd.CommandText += ",`Password`=@pass,`Keyword`=@key ";
-				cmd.Parameters.Add(new MySqlParameter("pass", password));
-				cmd.Parameters.Add(new MySqlParameter("key", keyword));
+				cmd.Parameters.Add(new MySqlParameter("@pass", password));
+				cmd.Parameters.Add(new MySqlParameter("@key", keyword));
 			}
 
-			cmd.CommandText += "WHERE AccountID=@id";
+			cmd.CommandText += " WHERE AccountID=@id";
 
-			cmd.Parameters.Add(new MySqlParameter("id", id));
-			cmd.Parameters.Add(new MySqlParameter("fname", fname));
-			cmd.Parameters.Add(new MySqlParameter("lname",lname));
-			cmd.Parameters.Add(new MySqlParameter("mail", email));
-			cmd.Parameters.Add(new MySqlParameter("tel", telephone));
-			cmd.Parameters.Add(new MySqlParameter("street", street));
-			cmd.Parameters.Add(new MySqlParameter("houseNum",housenum));
-			cmd.Parameters.Add(new MySqlParameter("zip",zipcode));
+			cmd.Parameters.Add(new MySqlParameter("@id", id));
+			cmd.Parameters.Add(new MySqlParameter("@fname", fname));
+			cmd.Parameters.Add(new MySqlParameter("@lname",lname));
+			cmd.Parameters.Add(new MySqlParameter("@mail", email));
+			cmd.Parameters.Add(new MySqlParameter("@tel", telephone));
+			cmd.Parameters.Add(new MySqlParameter("@street", street));
+			cmd.Parameters.Add(new MySqlParameter("@houseNum",housenum));
+			cmd.Parameters.Add(new MySqlParameter("@zip",zipcode));
+			cmd.Parameters.Add(new MySqlParameter("@city",city));
 
 			return dBConnection.ExecuteNoNQuery(cmd);
 		}
@@ -171,6 +172,27 @@ namespace Library_Class
 		{
 			throw new NotImplementedException();
 		}
+
+        #region findAccount
+		public static Account FindAccount(int id)
+        {
+			if (id == 0 || id == null) return null;
+			cmd = new MySqlCommand();
+			cmd.CommandText = "Select * from account where AccountID=@id";
+			cmd.Parameters.Add(new MySqlParameter("@id", id));
+			DataSet data = dBConnection.ExecuteReader(cmd);
+			if (data.Tables.Count < 1) return null;
+            else
+            {
+				return new Account(
+					Convert.ToString(data.Tables[0].Rows[0][1]), Convert.ToString(data.Tables[0].Rows[0][2]),
+					 Convert.ToString(data.Tables[0].Rows[0][3]), Convert.ToString(data.Tables[0].Rows[0][4]),
+					  Convert.ToString(data.Tables[0].Rows[0][5]), Convert.ToString(data.Tables[0].Rows[0][6]),
+					 Convert.ToString(data.Tables[0].Rows[0][7]), Convert.ToString(data.Tables[0].Rows[0][8]),
+					 "");
+            }
+        }
+        #endregion
 
         #region worker
         public void MakeAccountWorker(int accountId, int jobId, string bankAccount, string serviceNumber, double salary)

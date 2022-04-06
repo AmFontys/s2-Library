@@ -27,7 +27,49 @@ namespace Library_Class
 		{
 			return _keyword;
 		}
-		
+		public string GetFName()
+		{
+			return _fname;
+		}
+		public string GetLName()
+		{
+			return _lname;
+		}
+
+		public string GetEmail()
+        {
+			return _email;
+        }
+
+		public string GetTelephone()
+        {
+			return _telephone;
+        }
+
+		public string GetStreet()
+        {
+			return _street;
+        }
+
+		public string GetHouseNum()
+        {
+			return _houseNum;
+        }
+
+		public string GetZipcode()
+        {
+			return _zipcode;
+        }
+
+		public string GetCity()
+        {
+			return _city;
+        }
+		public Account()
+        {
+
+        }
+
 		public Account(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
 		{
 			_fname=fname;
@@ -40,7 +82,8 @@ namespace Library_Class
 			_city=city;
 			byte[] salt = GenerateKeyWord();
 			_keyword = Convert.ToBase64String(salt);
-			_password=GeneratePassword(salt,password);
+			if (password == null || password == "") _password = "None";
+			else _password = GeneratePassword(salt, password);
 			_card = GenerateCard();
 		}
 

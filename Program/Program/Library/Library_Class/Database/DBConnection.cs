@@ -16,6 +16,7 @@ namespace Library_Class
 
 		public void closeConnection()
 		{
+            if (_con == null) return;
 			_con.Close();
 		}
 
@@ -49,10 +50,10 @@ namespace Library_Class
             {
                 if (_con.State == ConnectionState.Open)
                 {
-                    _con.Close();
+                   closeConnection();
                 }
                 query = null;
-                closeConnection();
+                
             }
         }
 
@@ -90,7 +91,6 @@ namespace Library_Class
                     _con.Close();
                 }
                 query = null;
-                _con = null;
             }
             return lDataSet;
         }

@@ -1,5 +1,6 @@
 using Library_Class;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 using System.Net.Mail;
@@ -11,8 +12,12 @@ namespace Library.Pages.Detail.User
     {
         public string msg;
         Regex regex;
+        [BindProperty]
+        public Account Account{get;set;}
+
+        [BindProperty]
         [Required]
-        private int id;
+        private int id { get;set;}
         [BindProperty]
         [Required]
         public string Fname { get; set; }
@@ -41,13 +46,15 @@ namespace Library.Pages.Detail.User
         public string Password { get; set; }
 
         public void OnGet()
-        {
-            id =Convert.ToInt32( User.FindFirst("id").Value);
+        {              
+            Account = AccountManagement.FindAccount(GetID());
         }
 
         public void OnPost()
         {
+            id=GetID();
             bool valid = validateInput(out string error);
+            if (Password == null) ModelState["Password"].ValidationState = ModelValidationState.Valid;
             if (ModelState.IsValid)
             {
                 if (AccountManagement.UpdateAccount(id, Fname, Lname, Email, Telephone, Street, HouseNum, Zipcode, City, Password))
@@ -61,6 +68,11 @@ namespace Library.Pages.Detail.User
                 msg = $"You gave some invalid inputs please give valid input " +
                     $" {error}";
             }
+        }
+
+        private int GetID()
+        {
+            return Convert.ToInt32(User.FindFirst("id").Value);
         }
 
         private bool validateInput(out string error)
@@ -114,6 +126,7 @@ namespace Library.Pages.Detail.User
 
         private bool ValidatePass(string password)
         {
+            if (password == null || password == "") return true;
             regex = new Regex(@"^[^-\s]*[a-zA-Z\d]{8,}");
             if (regex.IsMatch(password))
             {
@@ -202,4 +215,4 @@ namespace Library.Pages.Detail.User
             else return false;
         }
     }
-}
+} 
