@@ -41,9 +41,14 @@ namespace Library.Pages.Catalog
 
             if (ModelState.IsValid)
             {
-                if (Reservation.MakeReservation(itemID, accountID, date))
-                    msg = "Reservation succesfull created";
-                else msg = "Reservation is not succesfully created try again later ";
+                if (Reservation.IsItemAvailble(itemID, date)<=0)
+                    msg = "This item is already reserved for this date";
+                else
+                {
+                    if (Reservation.MakeReservation(itemID, accountID, date))
+                        msg = "Reservation succesfull created";
+                    else msg = "Reservation is not succesfully created try again later ";
+                }
             }
             else msg = "Something whent wrong try again later";
         }

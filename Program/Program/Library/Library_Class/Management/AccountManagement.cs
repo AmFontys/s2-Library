@@ -119,7 +119,8 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@Password", pass));
 			cmd.Parameters.Add(new MySqlParameter("@Key", keyword));
 			cmd.Parameters.Add(new MySqlParameter("@CardID", card));
-			return dBConnection.ExecuteNoNQuery(cmd);
+			if( dBConnection.ExecuteNoNQuery(cmd)>0) return true;
+			else return false;
 		}
 		private static bool checkIfAlreadyExist(string mail)
 		{
@@ -165,7 +166,8 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@zip",zipcode));
 			cmd.Parameters.Add(new MySqlParameter("@city",city));
 
-			return dBConnection.ExecuteNoNQuery(cmd);
+			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			else return false;
 		}
 
 		public static void DeleteAccount(int id)

@@ -20,7 +20,7 @@ namespace Library_Class
 			_con.Close();
 		}
 
-		public bool ExecuteNoNQuery(MySqlCommand query)
+		public int ExecuteNoNQuery(MySqlCommand query)
 		{
             MySqlConnection _con = MakeConnection();
             try
@@ -30,21 +30,20 @@ namespace Library_Class
                     _con.Close();
                     _con.Open();
                     query.Connection = _con;
-                    query.ExecuteNonQuery();
-                    return true;
+                    return query.ExecuteNonQuery();                    
                 }
                 else
                 {
                     _con.Open();
                     query.Connection = _con;
-                    query.ExecuteNonQuery();
-                    return true;
+                    return query.ExecuteNonQuery();
+                    
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("An error has been occured" + ex.Message);
-                return false;
+                return 0;
             }
             finally
             {
