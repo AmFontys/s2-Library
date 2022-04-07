@@ -1,0 +1,29 @@
+﻿@page
+@model Library.Pages.Catalog.MoviesModel
+@{    
+Layout = "Theme/_catalogLayout";
+}
+@section headTitle{
+    Movies
+}
+<div class="short-grid">
+<div class="wrapper-grid-catalogue">   
+@for (var i = 0; i < Model.movies.Count; i++)
+{
+    if(i%5==0){
+        @:</div>
+        @:</div>
+        @:<div class="short-grid">
+            @:<div class="wrapper-grid-catalogue">
+    }
+      <div class="container">
+        <a asp-area="" asp-page="./MovieInfo" asp-route-id="@Model.movies[i].GetID()" class="redirection">
+          <div class='banner-img'>
+            <h1 class="name">@Model.movies[i].GetName()</h1>
+            <p class="description">@Model.movies[i].GetDescription() </p>
+          </div>
+        </a></div>
+}
+</div>
+</div>
+     

@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Library\Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Account\AccountNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Account\AccountOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Account\AccountUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Catalogue\CatalogueNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Catalogue\CatalogueOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Catalogue\CatalogueUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Employment\WorkerUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Event\EventNew.cs" />
+    <Compile Update="Views\Event\EventOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Event\EventUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourNew.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourOverview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\openingHour\OpeningHourUpdate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

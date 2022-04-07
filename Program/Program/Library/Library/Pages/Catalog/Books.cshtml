@@ -1,0 +1,31 @@
+﻿@page
+@model BooksModel
+@{
+Layout = "Theme/_catalogLayout";
+}
+
+@section headTitle{
+Books
+}
+
+<div class="short-grid">
+<div class="wrapper-grid-catalogue">    
+@for (var i = 0; i < Model.books.Count; i++)
+{
+    if(i%5==0){
+            @:</div>
+        @:</div>
+        @:<div class="short-grid">
+            @:<div class="wrapper-grid-catalogue">
+    }
+    <div class="container">
+    <a asp-area="" asp-page="./BookInfo" asp-route-id="@Model.books[i].GetID()" class="redirection">
+        <div class='banner-img'>
+        <h1 class="name"> @Model.books[i].GetName()</h1>
+        <p class="description"> @Model.books[i].GetDescription() </p>
+        </div>
+        </a>
+    </div>
+}
+</div>
+</div>
