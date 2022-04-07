@@ -9,8 +9,8 @@ namespace Library.Pages.Catalog
         public Book book { get; set; }
         public IActionResult OnGet(int id)
         {
-            book = Book.SearchBookByID(id);
-            if(book == null)
+            book = (Book)ItemManagement.SearchItem(id, 'B');
+            if (book == null)
             {
                 return NotFound();
             }

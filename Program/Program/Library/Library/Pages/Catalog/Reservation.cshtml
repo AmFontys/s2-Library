@@ -2,3 +2,29 @@
 @model Library.Pages.Catalog.ReservationModel
 @{
 }
+@section title{
+    Reservation
+}
+<form method="post" class="workerForm" asp>
+    <table class="formTable">
+        <tr>
+            <td><input value="@Model.itemID"  type="hidden" asp-for="itemID"/></td>
+        </tr>
+    <tr>
+   <td>   <label asp-for="date">Reserve for: </label>
+    <span class="form-required" asp-validation-for="date">*</span></td> 
+    <td><input type="date" required="required" aria-required="true" 
+        asp-for="date" value="@DateTime.UtcNow.ToShortDateString()" 
+    min="@DateTime.UtcNow.Year-@DateTime.UtcNow.Month-@DateTime.UtcNow.AddDays(1).Day" max="@DateTime.UtcNow.AddYears(1).Year-12-31" />
+        </td>
+</tr> 
+<tr>
+    <td colspan=2><label>The deliver date will be 7 days later then the start date it's possible to extend this 2 times</label></td>
+</tr>
+<tr>
+    <td> <input type="submit" value="Submit" /></td>
+    <td></td>
+    </tr>
+</table>
+@Model.msg
+</form>

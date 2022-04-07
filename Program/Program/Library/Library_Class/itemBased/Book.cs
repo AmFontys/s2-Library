@@ -60,7 +60,7 @@ namespace Library_Class
 			throw new NotImplementedException();
 		}
 
-		private static Book makeBook(DataSet data, int index)
+		public static Book makeBook(DataSet data, int index)
 		{
 			try
 			{
@@ -101,18 +101,6 @@ namespace Library_Class
 				}
 			}
 			return booklist;
-		}
-
-		public static Book SearchBookByID(int id)
-		{
-			MySqlCommand command = new MySqlCommand();
-			DBConnection dBConnection = new DBConnection();
-
-			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
-				"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID` WHERE `bookinfo`.ItemID=@Id";
-			command.Parameters.Add(new MySqlParameter("@Id", id));
-			DataSet ds = dBConnection.ExecuteReader(command);
-			return makeBook(ds, 0);
 		}
 
 	}

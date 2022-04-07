@@ -64,7 +64,7 @@ namespace Library_Class
 			throw new NotImplementedException();
 		}
 
-		private static Movie MakeMovie(DataSet data, int index)
+		public static Movie MakeMovie(DataSet data, int index)
         {
 			try
 			{
@@ -106,24 +106,6 @@ namespace Library_Class
 				}
 			}
 			return movielist;		
-		}
-
-		public static Movie SearchMovieByID(int id)
-		{
-			MySqlCommand command = new MySqlCommand();
-			DBConnection dBConnection = new DBConnection();
-
-			command.CommandText = "SELECT `item`.*, `movieinfo`.`SubtitleLanguage`, `movieinfo`.`Producer`, " +
-				"`movieinfo`.`timeInMin`, `movieinfo`.`Demographic` " +
-				"FROM `item` RIGHT JOIN `movieinfo` ON `movieinfo`.`ItemID` = `item`.`ItemID` WHERE `movieinfo`.ItemID=@Id";
-			command.Parameters.Add(new MySqlParameter("@Id", id));
-
-			DataSet ds = dBConnection.ExecuteReader(command);
-			if (ds.Tables.Count > 0)
-			{				
-				return	(MakeMovie(ds, 0));				
-			}
-			return null;
 		}
 
 	}

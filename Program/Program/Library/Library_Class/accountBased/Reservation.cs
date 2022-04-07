@@ -9,11 +9,8 @@ namespace Library_Class
 		private DateTime _startDate;
 		private DateTime _endDate;
 		private int _extensionNum;
-
-		public void MakeReservation(Item item, Account borrower)
-		{
-			throw new NotImplementedException();
-		}
+		private Item _item;
+		private Account _account;
 
 		public void ExtendRentPeriod()
 		{
@@ -22,12 +19,18 @@ namespace Library_Class
 
 		public Reservation(Item item, Account user, DateTime startDate, DateTime endDate)
 		{
-			throw new NotImplementedException();
+			_startDate = startDate;
+			_endDate = endDate;
+			_extensionNum = 0;
+			_item = item;
+			_account = user;
 		}
 
 		public Reservation(DateTime start, DateTime end, Item item)
 		{
-			throw new NotImplementedException();
+			_startDate = start;
+			_endDate = end;
+			_item = item;
 		}
 	}
 }

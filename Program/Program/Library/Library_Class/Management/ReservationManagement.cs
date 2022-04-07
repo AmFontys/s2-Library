@@ -1,14 +1,25 @@
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Library.Class
+namespace Library_Class
 {
 	public class ReservationManagement
 	{
-		public void MakeReservation(int itemId, int accountId, DateTime StartDate)
+		private static DBConnection dBConnection = new DBConnection();
+		public bool MakeReservation(int itemId, int accountId, DateTime StartDate)
 		{
-			throw new NotImplementedException();
+			DateTime endDate = StartDate.AddDays(7);
+
+			MySqlCommand command = new MySqlCommand();
+			command.CommandText = "INSERT INTO `reservation`(`itemID`, `AccountID`, `StartDate`, `Enddate`) VALUES (@item,@account,@startDate,@endDate)";
+			command.Parameters.Add(new MySqlParameter("@item", itemId));
+			command.Parameters.Add(new MySqlParameter("@account", accountId));
+			command.Parameters.Add(new MySqlParameter("@startDate", StartDate));
+			command.Parameters.Add(new MySqlParameter("@endDate", endDate));
+
+			return dBConnection.ExecuteNoNQuery(command);
 		}
 
 		public static void DeleteReservation(int id)

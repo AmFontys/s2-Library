@@ -5,6 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages(options =>
 {
+    options.Conventions.AuthorizePage("/Catalog/Reservation");
     options.Conventions.AuthorizePage("/Detail");
     options.Conventions.AuthorizeFolder("/Detail/Management","IsEmployee");
     options.Conventions.AuthorizeFolder("/Detail/Management/openingHour","IsManagement");
