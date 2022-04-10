@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>Book</Name>
         <Access>Public</Access>
-        <Location left="1646" top="570" />
+        <Location left="1688" top="592" />
         <Size width="717" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int _pages</Member>
@@ -24,7 +24,7 @@
       <Entity type="Class">
         <Name>Movie</Name>
         <Access>Public</Access>
-        <Location left="2394" top="452" />
+        <Location left="2436" top="474" />
         <Size width="849" height="264" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _subtitled</Member>
@@ -43,7 +43,7 @@
       <Entity type="Class">
         <Name>Item</Name>
         <Access>Public</Access>
-        <Location left="1877" top="34" />
+        <Location left="1919" top="56" />
         <Size width="518" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">protected string _name</Member>
@@ -63,7 +63,7 @@
       <Entity type="Class">
         <Name>Genre</Name>
         <Access>Public</Access>
-        <Location left="2582" top="51" />
+        <Location left="2624" top="73" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _genreName</Member>
@@ -75,7 +75,7 @@
       <Entity type="Class">
         <Name>Account</Name>
         <Access>Public</Access>
-        <Location left="556" top="894" />
+        <Location left="598" top="916" />
         <Size width="753" height="383" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _fname</Member>
@@ -101,7 +101,7 @@
       <Entity type="Class">
         <Name>Worker</Name>
         <Access>Public</Access>
-        <Location left="466" top="1299" />
+        <Location left="508" top="1321" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _bankAccount</Member>
@@ -113,7 +113,7 @@
       <Entity type="Class">
         <Name>Position</Name>
         <Access>Public</Access>
-        <Location left="1086" top="1299" />
+        <Location left="1128" top="1321" />
         <Size width="237" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private string _name</Member>
@@ -127,7 +127,7 @@
       <Entity type="Class">
         <Name>Reservation</Name>
         <Access>Public</Access>
-        <Location left="1125" top="367" />
+        <Location left="1167" top="389" />
         <Size width="449" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private DateTime _startDate</Member>
@@ -141,7 +141,7 @@
       <Entity type="Class">
         <Name>Schedule</Name>
         <Access>Public</Access>
-        <Location left="1171" top="1591" />
+        <Location left="1213" top="1613" />
         <Size width="405" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private DateTime _date</Member>
@@ -165,19 +165,19 @@ Data access layer
 kijken naar interface
 
 Kan wel gebruiken alvast</Text>
-        <Location left="13" top="12" />
+        <Location left="55" top="34" />
         <Size width="238" height="244" />
       </Entity>
       <Entity type="Class">
         <Name>ItemManagement</Name>
         <Access>Public</Access>
-        <Location left="868" top="12" />
+        <Location left="910" top="34" />
         <Size width="813" height="281" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
-        <Member type="Method">public void AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
-        <Member type="Method">public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
-        <Member type="Method">public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
+        <Member type="Method">public bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
+        <Member type="Method">public bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
+        <Member type="Method">public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)</Member>
+        <Member type="Method">public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)</Member>
         <Member type="Method">public static void DeleteItem(int id)</Member>
         <Member type="Method">public object SearchItem(string data, char searchOn)</Member>
         <Member type="Method">public List&lt;Book&gt; GetAllItems()</Member>
@@ -187,10 +187,10 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Class">
         <Name>ReservationManagement</Name>
         <Access>Public</Access>
-        <Location left="403" top="225" />
+        <Location left="445" top="247" />
         <Size width="428" height="221" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void MakeReservation(int itemId, int accountId, DateTime StartDate)</Member>
+        <Member type="Method">public bool MakeReservation(int itemId, int accountId, DateTime StartDate)</Member>
         <Member type="Method">public static void DeleteReservation(int id)</Member>
         <Member type="Method">public bool ExtendReservation(int reservationId)</Member>
         <Member type="Method">public List&lt;Reservation&gt; GetReservations()</Member>
@@ -200,18 +200,20 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Class">
         <Name>AccountManagement</Name>
         <Access>Public</Access>
-        <Location left="22" top="606" />
-        <Size width="934" height="281" />
+        <Location left="55" top="628" />
+        <Size width="934" height="315" />
         <Collapsed>False</Collapsed>
-        <Member type="Method">public void AddAccount(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
-        <Member type="Method">public void UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
+        <Member type="Method">public static bool AddAccount(string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
+        <Member type="Method">private static bool checkIfAlreadyExist(string mail)</Member>
+        <Member type="Method">public static bool UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)</Member>
         <Member type="Method">public static void DeleteAccount(int id)</Member>
-        <Member type="Method">public void MakeAccountWorker(int accountId, int jobId, string bankAccount, string serviceNumber, double salary)</Member>
-        <Member type="Method">public void ChangeWorkerJob(int accountId, int positionId)</Member>
-        <Member type="Method">public void UpdateWorker(int accountId, string bankAccount, double salary)</Member>
+        <Member type="Method">public static Account FindAccount(int id)</Member>
+        <Member type="Method">public bool MakeAccountWorker(int accountId, int jobId, string bankAccount, string serviceNumber, double salary)</Member>
+        <Member type="Method">public bool ChangeWorkerJob(int accountId, int positionId)</Member>
+        <Member type="Method">public bool UpdateWorker(int accountId, string bankAccount, double salary)</Member>
         <Member type="Method">public static void DeleteWorker(int accountId)</Member>
-        <Member type="Method">public void AddPosition(string name, double salary)</Member>
-        <Member type="Method">public void UpdatePosition(int id, string name, double salary)</Member>
+        <Member type="Method">public bool AddPosition(string name, double salary)</Member>
+        <Member type="Method">public bool UpdatePosition(int id, string name, double salary)</Member>
         <Member type="Method">public List&lt;Account&gt; GetAllAccount()</Member>
         <Member type="Method">public List&lt;Worker&gt; GetAccounts()</Member>
         <Member type="Method">public List&lt;Position&gt; GetPositions()</Member>
@@ -220,7 +222,7 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Class">
         <Name>ScheduleManagement</Name>
         <Access>Public</Access>
-        <Location left="1166" top="1891" />
+        <Location left="1208" top="1913" />
         <Size width="624" height="162" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void NewSchedule(int workerId, DateTime scheduleDate, TimeSpan beginHour, TimeSpan endHour)</Member>
@@ -233,7 +235,7 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Class">
         <Name>GenreManagement</Name>
         <Access>Public</Access>
-        <Location left="2855" top="42" />
+        <Location left="2897" top="64" />
         <Size width="307" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void MakeNewGenre(string name)</Member>
@@ -245,7 +247,7 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Interface">
         <Name>IDatabaseAccess</Name>
         <Access>Public</Access>
-        <Location left="1770" top="1050" />
+        <Location left="1812" top="1072" />
         <Size width="162" height="117" />
         <Collapsed>False</Collapsed>
         <Member type="Method">MySQLConnection MakeConnection()</Member>
@@ -254,7 +256,7 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Class">
         <Name>DBConnection</Name>
         <Access>Public</Access>
-        <Location left="2081" top="1050" />
+        <Location left="2123" top="1072" />
         <Size width="244" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public MySQLConnection MakeConnection()</Member>
@@ -266,13 +268,13 @@ Kan wel gebruiken alvast</Text>
       <Entity type="Comment">
         <Text>All Management classes
 use the DBConnection to connect to the database</Text>
-        <Location left="2438" top="1222" />
+        <Location left="2480" top="1244" />
         <Size width="160" height="75" />
       </Entity>
       <Entity type="Class">
         <Name>AllManagementClasses</Name>
         <Access>Public</Access>
-        <Location left="2438" top="1322" />
+        <Location left="2480" top="1344" />
         <Size width="162" height="77" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
@@ -283,20 +285,20 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>2488</X>
-          <Y>420</Y>
+          <X>2530</X>
+          <Y>442</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>2318</X>
-          <Y>384</Y>
+          <X>2360</X>
+          <Y>406</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Generalization" first="0" second="2">
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>2318</X>
-          <Y>366</Y>
+          <X>2360</X>
+          <Y>388</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Association" first="2" second="3">
@@ -313,8 +315,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>654</X>
-          <Y>1308</Y>
+          <X>696</X>
+          <Y>1330</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -331,8 +333,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1898</X>
-          <Y>403</Y>
+          <X>1940</X>
+          <Y>425</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -344,8 +346,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1267</X>
-          <Y>869</Y>
+          <X>1309</X>
+          <Y>891</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -357,8 +359,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>694</X>
-          <Y>1541</Y>
+          <X>736</X>
+          <Y>1563</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -379,12 +381,12 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>173</X>
-          <Y>971</Y>
+          <X>206</X>
+          <Y>1027</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>499</X>
-          <Y>1011</Y>
+          <X>541</X>
+          <Y>1033</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -393,8 +395,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>1008</X>
-          <Y>414</Y>
+          <X>1050</X>
+          <Y>436</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
@@ -419,8 +421,8 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <BendPoint relativeToStartShape="False">
-          <X>1852</X>
-          <Y>316</Y>
+          <X>1894</X>
+          <Y>338</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="11" second="4">
@@ -429,12 +431,12 @@ use the DBConnection to connect to the database</Text>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
-          <X>840</X>
-          <Y>476</Y>
+          <X>882</X>
+          <Y>498</Y>
         </BendPoint>
         <BendPoint relativeToStartShape="False">
-          <X>988</X>
-          <Y>869</Y>
+          <X>1030</X>
+          <Y>891</Y>
         </BendPoint>
       </Relationship>
       <Relationship type="Dependency" first="18" second="16">

@@ -11,29 +11,91 @@ namespace Library_Class
 	{
 		private static DBConnection dBConnection;
 
-		public void AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
-			throw new NotImplementedException();
+			MySqlCommand cmd = new MySqlCommand();
+			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +
+				"INSERT INTO `bookinfo`(`ItemID`, `Pages`, `Author`, `Publisher`) VALUES (LAST_INSERT_ID(),@page,@author,@publisher);  ";
+			cmd.Parameters.Add(new MySqlParameter("@name", name));
+			cmd.Parameters.Add(new MySqlParameter("@isbn",ISBN));
+			cmd.Parameters.Add(new MySqlParameter("@language",language));
+			cmd.Parameters.Add(new MySqlParameter("@description",description));
+			cmd.Parameters.Add(new MySqlParameter("@cost", cost));
+
+			cmd.Parameters.Add(new MySqlParameter("@page", page));
+			cmd.Parameters.Add(new MySqlParameter("@author",author));
+			cmd.Parameters.Add(new MySqlParameter("@publisher",publisher));
+			if(dBConnection.ExecuteNoNQuery(cmd)>0)return true;
+			else return false;
 		}
 
-		public void AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
-			throw new NotImplementedException();
+			MySqlCommand cmd = new MySqlCommand();
+			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +
+				"INSERT INTO `movieinfo`(`ItemID`, `SubtitleLanguage`, `Producer`, `timeInMin`, `Demographic`) VALUES (LAST_INSERT_ID(),@subtitle,@producer,@time,@demographic)";
+			cmd.Parameters.Add(new MySqlParameter("@name", name));
+			cmd.Parameters.Add(new MySqlParameter("@isbn", ISBN));
+			cmd.Parameters.Add(new MySqlParameter("@language", language));
+			cmd.Parameters.Add(new MySqlParameter("@description", description));
+			cmd.Parameters.Add(new MySqlParameter("@cost", cost));
+
+			cmd.Parameters.Add(new MySqlParameter("@subtitle",subtitle));
+			cmd.Parameters.Add(new MySqlParameter("@producer",producer));
+			cmd.Parameters.Add(new MySqlParameter("@time",time));
+			cmd.Parameters.Add(new MySqlParameter("@demographic", demographic));
+
+			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			else return false;
 		}
 
-		public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
-			throw new NotImplementedException();
+			MySqlCommand cmd = new MySqlCommand();
+			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +
+				"update `bookinfo` set `Pages`=@page, `Author`=@author, `Publisher`=@publisher where itemid=@id;  ";
+			cmd.Parameters.Add(new MySqlParameter("@id", id));
+			cmd.Parameters.Add(new MySqlParameter("@name", name));
+			cmd.Parameters.Add(new MySqlParameter("@isbn", ISBN));
+			cmd.Parameters.Add(new MySqlParameter("@language", language));
+			cmd.Parameters.Add(new MySqlParameter("@description", description));
+			cmd.Parameters.Add(new MySqlParameter("@cost", cost));
+
+			cmd.Parameters.Add(new MySqlParameter("@page", page));
+			cmd.Parameters.Add(new MySqlParameter("@author", author));
+			cmd.Parameters.Add(new MySqlParameter("@publisher", publisher));
+			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			else return false;
 		}
 
-		public void UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
-			throw new NotImplementedException();
+			MySqlCommand cmd = new MySqlCommand();
+			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +
+				"UPDATE `movieinfo` SET `SubtitleLanguage`=@subtitle,`Producer`=@producer,`timeInMin`=@time,`Demographic`=@demographic WHERE itemid=@id";
+			cmd.Parameters.Add(new MySqlParameter("@id", id));
+			cmd.Parameters.Add(new MySqlParameter("@name", name));
+			cmd.Parameters.Add(new MySqlParameter("@isbn", ISBN));
+			cmd.Parameters.Add(new MySqlParameter("@language", language));
+			cmd.Parameters.Add(new MySqlParameter("@description", description));
+			cmd.Parameters.Add(new MySqlParameter("@cost", cost));
+
+			cmd.Parameters.Add(new MySqlParameter("@subtitle", subtitle));
+			cmd.Parameters.Add(new MySqlParameter("@producer", producer));
+			cmd.Parameters.Add(new MySqlParameter("@time", time));
+			cmd.Parameters.Add(new MySqlParameter("@demographic", demographic));
+			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			else return false;
 		}
 
 		public static void DeleteItem(int id)
 		{
-			throw new NotImplementedException();
+			MySqlCommand cmd = new MySqlCommand();
+			cmd.CommandText = "DELETE FROM `bookinfo` WHERE itemId=@id;" +
+				"DELETE FROM `movieinfo` WHERE itemId=@id;" +
+				"DELETE FROM `item` WHERE itemID=@id;";
+			cmd.Parameters.Add(new MySqlParameter("@id", id));
+			dBConnection.ExecuteNoNQuery(cmd);
 		}
 
 		public static object SearchItem(int data, char searchOn)
