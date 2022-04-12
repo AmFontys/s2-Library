@@ -26,18 +26,18 @@ namespace Library.Pages.Detail.Management.Catalogue
                 if (result == 0)
                 {
                     msg = "The item is already deleted or something whent wrong when executing";
-                    return RedirectToPage("Catalogue");
+                    return Page();
                 }
                 else
                 {
                     msg = "Item succesfully deleted";
-                    return RedirectToPage("Catalogue");
+                    return Page();
                 }
             }
             else
             {
                 msg = "There are no items with this id";
-                return RedirectToPage("Catalogue");
+                return Page();
             }
         }
     }
