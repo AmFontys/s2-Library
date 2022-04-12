@@ -12,7 +12,7 @@ namespace Library.Pages.Catalog
         public void OnGet()
         {
             books = new List<Book>();
-           books= Book.GetAllBooks();
+           books= ItemManagement.GetAllItems();
             
         }
 

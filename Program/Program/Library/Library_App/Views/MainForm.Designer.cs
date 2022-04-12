@@ -112,7 +112,7 @@
             // 
             // panelRowMenu
             // 
-            this.panelRowMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(77)))), ((int)(((byte)(67)))));
+            this.panelRowMenu.BackColor = System.Drawing.Color.White;
             this.panelRowMenu.Controls.Add(this.btnAccount);
             this.panelRowMenu.Controls.Add(this.btnOpeningHour);
             this.panelRowMenu.Controls.Add(this.btnEvent);

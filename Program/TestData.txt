@@ -1,6 +1,9 @@
 -------------------------
-Login:
-FirstName: LoginTest
-LastName: User
+Login Regular:
+Email: test2@test.nl
 Password: 1234567890
+
+Login Management:
+Email arenco@mail.nl
+Password 1234567890
 -------------------------

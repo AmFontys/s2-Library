@@ -88,25 +88,6 @@ namespace Library_Class
             }
 		}
 
-		public static List<Movie> GetAllMovies()
-		{
-			List<Movie> movielist = new();
-			MySqlCommand command = new MySqlCommand();
-			DBConnection dBConnection=new DBConnection();
-
-			command.CommandText = "SELECT `item`.*, `movieinfo`.`SubtitleLanguage`, `movieinfo`.`Producer`, " +
-				"`movieinfo`.`timeInMin`, `movieinfo`.`Demographic` " +
-				"FROM `item` RIGHT JOIN `movieinfo` ON `movieinfo`.`ItemID` = `item`.`ItemID`; ";
-			DataSet ds = dBConnection.ExecuteReader(command);
-			if (ds.Tables.Count > 0)
-			{
-				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-				{
-					movielist.Add(MakeMovie(ds,i));
-				}
-			}
-			return movielist;		
-		}
-
+		
 	}
 }

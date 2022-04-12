@@ -88,14 +88,15 @@ namespace Library_Class
 			else return false;
 		}
 
-		public static void DeleteItem(int id)
+		public static int DeleteItem(int? id)
 		{
+			if(id ==null | id<1) return 0;
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "DELETE FROM `bookinfo` WHERE itemId=@id;" +
 				"DELETE FROM `movieinfo` WHERE itemId=@id;" +
 				"DELETE FROM `item` WHERE itemID=@id;";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
-			dBConnection.ExecuteNoNQuery(cmd);
+			return dBConnection.ExecuteNoNQuery(cmd);
 		}
 
 		public static object SearchItem(int data, char searchOn)
@@ -132,14 +133,43 @@ namespace Library_Class
 			return item;
 		}
 
-		public List<Book> GetAllItems()
+		public static List<Book> GetAllItems()
 		{
-			throw new NotImplementedException();
+			List<Book> booklist = new();
+			MySqlCommand command = new MySqlCommand();
+			DBConnection db = new DBConnection();
+
+			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
+					"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
+			DataSet ds = db.ExecuteReader(command);
+			if (ds.Tables.Count > 0)
+			{
+				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+				{
+					booklist.Add(Book.makeBook(ds, i));
+				}
+			}
+			return booklist;
 		}
 
-		public List<Movie> GetAllItem()
+		public static List<Movie> GetAllItem()
 		{
-			throw new NotImplementedException();
+			List<Movie> movielist = new();
+			MySqlCommand command = new MySqlCommand();
+			DBConnection dBConnection = new DBConnection();
+
+			command.CommandText = "SELECT `item`.*, `movieinfo`.`SubtitleLanguage`, `movieinfo`.`Producer`, " +
+				"`movieinfo`.`timeInMin`, `movieinfo`.`Demographic` " +
+				"FROM `item` RIGHT JOIN `movieinfo` ON `movieinfo`.`ItemID` = `item`.`ItemID`; ";
+			DataSet ds = dBConnection.ExecuteReader(command);
+			if (ds.Tables.Count > 0)
+			{
+				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+				{
+					movielist.Add(Movie.MakeMovie(ds, i));
+				}
+			}
+			return movielist;
 		}
 	}
 }

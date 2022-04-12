@@ -1,4 +1,4 @@
-﻿using Library.Class;
+﻿using Library_Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

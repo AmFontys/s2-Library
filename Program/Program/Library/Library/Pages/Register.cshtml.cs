@@ -53,7 +53,7 @@ namespace Library.Pages
             if (ModelState.IsValid & keyword !=null )
             {
                 if (AccountManagement.AddAccount(Fname,Lname,Email,Telephone,Street,HouseNum,Zipcode,City,Password))
-                    msg = $"Your account {Account} is created";
+                    msg = $"Your account {Account} is created please login now";
                 else msg = $"This account already exist";
             }
             else
@@ -199,18 +199,6 @@ namespace Library.Pages
             if (validatestring.IndexOfAny(invalidChars) == -1) return true;
             else return false;
         }
-
-        public IActionResult onPost()
-        {
-
-            if (ModelState.IsValid)
-            {
-                return RedirectToPage("Index");
-            }
-            else
-            {
-                return Page();
-            }
-        }
+                
     }
 }

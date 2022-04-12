@@ -1,4 +1,89 @@
 ﻿@page
 @model Library.Pages.Detail.Management.Catalogue.CatalogueModel
 @{
+    Layout = "Theme/_catalogLayout";
 }
+
+@section headTitle{
+    Catalogue
+}
+<h5>@Model.msg</h5>
+<h3>All Books</h3>
+<table class="CatalogueTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ISBN</th>
+            <th>Language</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Pages</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var book in Model.books)
+        {
+            <tr>
+                <td>@book.GetName()</td>
+                <td>@book.GetISBN()</td>
+                <td>@book.GetLanguage()</td>
+                <td>@book.GetDescription()</td>
+                <td>@book.GetCost()</td>
+                <td>@book.GetPages()</td>
+                <td>@book.GetAuthor()</td>
+                <td>@book.GetPublisher()</td>
+
+                <td>
+                    <a asp-page="./BookUpdate" asp-route-id="@book.GetID()" asp-page-handler="Book">Edit</a>
+                    <a asp-page="./Catalogue" onclick="return confirm('Are you sure you want to delete this item?');"
+                    asp-page-handler="Delete" asp-route-id="@book.GetID()">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>All Movies</h3>
+<table class="CatalogueTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>ISBN</th>
+            <th>Language</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th>Subtitle(s)</th>
+            <th>Producer</th>
+            <th>Duration</th>
+            <th>Demographic</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var movie in Model.movies)
+        {
+            <tr>
+                <td>@movie.GetName()</td>
+                <td>@movie.GetISBN()</td>
+                <td>@movie.GetLanguage()</td>
+                <td>@movie.GetDescription()</td>
+                <td>@movie.GetCost()</td>
+                <td>@movie.GetSubTitle()</td>
+                <td>@movie.GetProducer()</td>
+                <td>@movie.GetTime()</td>
+                <td>@movie.GetDemographic()</td>
+
+                <td>
+                    <a asp-page="./MovieUpdate" asp-route-id="@movie.GetID()" asp-page-handler="Movie">Edit</a>
+                    <a asp-page="./Catalogue" onclick="return confirm('Are you sure you want to delete this item?');"
+                    asp-page-handler="Delete" asp-route-id="@movie.GetID()">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

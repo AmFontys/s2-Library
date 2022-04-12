@@ -216,7 +216,7 @@ namespace Library_Class
 		{
 			throw new NotImplementedException();
 		}
-        #endregionx
+        #endregion
         #region position
         public void AddPosition(string name, double salary)
 		{

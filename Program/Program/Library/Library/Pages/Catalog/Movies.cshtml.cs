@@ -10,7 +10,7 @@ namespace Library.Pages.Catalog
         public List<Movie> movies { get; set; }
         public void OnGet()
         {
-            movies = Movie.GetAllMovies();
+            movies = ItemManagement.GetAllItem();
         }
     }
 }

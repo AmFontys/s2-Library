@@ -71,7 +71,7 @@ namespace Library_App.Views.Account
             type = 'b';
 
             List<Book> books = new List<Book>();
-            books = Book.GetAllBooks();
+            books = ItemManagement.GetAllItems();
             InsertToViewBook(books);
         }
 
@@ -80,7 +80,7 @@ namespace Library_App.Views.Account
             makeButtonsDissapear();
             type = 'm';
 
-            List<Movie> movies = Movie.GetAllMovies();
+            List<Movie> movies = ItemManagement.GetAllItem();
             InsertToViewMovie(movies);
 
         }

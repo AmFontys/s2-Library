@@ -84,24 +84,5 @@ namespace Library_Class
 			}
 		}
 
-		public static List<Book> GetAllBooks()
-		{
-			List<Book> booklist = new();
-			MySqlCommand command = new MySqlCommand();
-			DBConnection db = new DBConnection();
-
-			command.CommandText = "SELECT `item`.*, `bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher` " +
-					"FROM `item` RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
-			DataSet ds = db.ExecuteReader(command);
-			if (ds.Tables.Count > 0)
-			{
-				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-				{
-					booklist.Add(makeBook(ds, i));
-				}
-			}
-			return booklist;
-		}
-
 	}
 }

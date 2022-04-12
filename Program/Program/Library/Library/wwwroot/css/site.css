@@ -275,3 +275,12 @@ nav ul li a {
         margin: 0.8rem;
         padding-right: 0.5rem;
     }
+.CatalogueTable{
+    border: 1px solid black;
+    min-width: 50rem;
+    }
+.CatalogueTable td,tr {
+    border-top: 1px solid black;
+    margin: 0.8rem;
+    padding-right: 0.5rem;
+}

@@ -13,7 +13,7 @@ namespace Library_App
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtFName.Text;
+            string email = txtEmail.Text;
             string pass = txtPass.Text;
             bool loginsuccesfull = AccountManagement.Login(email, pass,out string role,out string id);
             if (loginsuccesfull)
