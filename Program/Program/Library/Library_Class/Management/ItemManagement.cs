@@ -9,9 +9,9 @@ namespace Library_Class
 {
 	public abstract class ItemManagement
 	{
-		private static DBConnection dBConnection;
+		private static DBConnection dBConnection=new();
 
-		public bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public static bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +
@@ -29,7 +29,7 @@ namespace Library_Class
 			else return false;
 		}
 
-		public bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public static bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +

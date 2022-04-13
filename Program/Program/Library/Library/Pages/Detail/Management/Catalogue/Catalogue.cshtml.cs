@@ -14,31 +14,34 @@ namespace Library.Pages.Detail.Management.Catalogue
         public string msg { get; set; }
         public void OnGet()
         {
-            books = ItemManagement.GetAllItems();
-            movies = ItemManagement.GetAllItem();
+            loadView();
         }
 
-        public IActionResult onGetDelete(int? id)
+        public IActionResult OnGetDelete(int? id)
         {
-            if (id != null & id < 1)
+            loadView();
+            if (id != null & id > 1)
             {
                 int result = ItemManagement.DeleteItem(id);
                 if (result == 0)
                 {
-                    msg = "The item is already deleted or something whent wrong when executing";
-                    return Page();
+                   return RedirectToPage("./Catalogue");
                 }
                 else
                 {
-                    msg = "Item succesfully deleted";
-                    return Page();
+                   return RedirectToPage("./Catalogue");
                 }
             }
             else
             {
-                msg = "There are no items with this id";
-                return Page();
+                return RedirectToPage("./Catalogue");
             }
+        }
+
+        private void loadView()
+        {
+            books = ItemManagement.GetAllItems();
+            movies = ItemManagement.GetAllItem();
         }
     }
 }
