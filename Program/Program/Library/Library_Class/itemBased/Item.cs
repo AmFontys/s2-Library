@@ -20,26 +20,34 @@ namespace Library_Class
 		
 		public string GetName()
         {
+			if (_name == null)
+				return "-----";
 			return _name;
         }
 
 		public string GetISBN()
         {
+			if (_ISBN == null)
+				return "-----";
 			return _ISBN;
         }
 		
 		public string GetLanguage()
 		{
+			if (_language == null)
+				return "-----";
 			return _language;
 		}
 
 		public string GetDescription()
 		{
+			if (_description == null)
+				return "-----";
 			return _description;
 		}
 
 		public double GetCost()
-        {
+        {			
 			return _cost;
         }
 

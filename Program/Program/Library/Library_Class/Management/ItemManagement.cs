@@ -49,7 +49,7 @@ namespace Library_Class
 			else return false;
 		}
 
-		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public static bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +
@@ -68,7 +68,7 @@ namespace Library_Class
 			else return false;
 		}
 
-		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public static bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +

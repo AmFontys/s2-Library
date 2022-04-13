@@ -14,11 +14,15 @@ namespace Library_Class
 
 		public string GetAuthor()
 		{
+			if (_author == null)
+				return "-----";
 			return _author;
 		}
 
 		public string GetPublisher()
 		{
+			if (_publisher == null)
+				return "-----";
 			return _publisher;
 		}
 
@@ -33,7 +37,7 @@ namespace Library_Class
 
 			return genreList;
 		}
-
+		
 		public Book(int page, string author, string publisher, int id, string name, string ISBN,
 			string language, string description, double cost) :
 			base(id, name, ISBN, language, description, cost)

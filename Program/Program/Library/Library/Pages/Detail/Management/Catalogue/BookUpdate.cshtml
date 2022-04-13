@@ -2,3 +2,95 @@
 @model Library.Pages.Detail.Management.Catalogue.BookUpdateModel
 @{
 }
+
+@section title{
+    New Book
+}
+<form method="post" class="workerForm">
+    
+    <table class="formTable">
+        <tr>
+            <td><input value="@Model.itemID"  type="hidden" asp-for="itemID"/></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Name" value="@Model.Book.GetName()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="ISBN">ISBN</label>
+                <span asp-validation-for="ISBN">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="ISBN" value="@Model.Book.GetISBN()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Language">Language</label>
+                <span asp-validation-for="Language">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Language" value="@Model.Book.GetLanguage()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Description">Description</label>
+                <span asp-validation-for="Description">*</span>
+                </td>
+            <td>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" asp-for="Description" value="@Model.Book.GetDescription()"></textarea>
+            </td>
+        </tr>   
+        <tr>
+            <td>
+                <label asp-for="cost">cost</label>
+                <span asp-validation-for="cost">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="cost" value="@Model.Book.GetCost()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Pages">Pages</label>
+                <span asp-validation-for="Pages">*</span>
+                </td>
+            <td>
+                <input type="number"  required="required" aria-required="true" asp-for="Pages" value="@Model.Book.GetPages()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Author">Author</label>
+                <span asp-validation-for="Author">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Author" value="@Model.Book.GetAuthor()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Publisher">Publisher</label>
+                <span asp-validation-for="Publisher">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Publisher" value="@Model.Book.GetPublisher()"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2> <input type="submit" value="Submit" /></td>
+        </tr>
+        <tr>
+    <td colspan=3>
+    @Html.Raw(@Model.responseMessage)</td>
+    </tr>
+    </table>
+</form>
+
