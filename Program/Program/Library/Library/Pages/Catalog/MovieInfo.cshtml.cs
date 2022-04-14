@@ -9,7 +9,8 @@ namespace Library.Pages.Catalog
         public Movie movie { get; set; }
         public IActionResult OnGet(int id)
         {
-            movie = (Movie)ItemManagement.SearchItem(id, 'M');
+            ItemManagement management = new ItemManagement(new DBConnection());
+            movie = (Movie)management.SearchItem(id, 'M');
             if (movie == null)
             {
                 return NotFound();

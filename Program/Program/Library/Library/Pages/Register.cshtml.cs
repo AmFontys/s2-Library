@@ -52,7 +52,8 @@ namespace Library.Pages
             string keyword = Account.GetKeyword();
             if (ModelState.IsValid & keyword !=null )
             {
-                if (AccountManagement.AddAccount(Fname,Lname,Email,Telephone,Street,HouseNum,Zipcode,City,Password))
+                AccountManagement management = new AccountManagement(new DBConnection());
+                if (management.AddAccount(Fname,Lname,Email,Telephone,Street,HouseNum,Zipcode,City,Password))
                     msg = $"Your account {Account} is created please login now";
                 else msg = $"This account already exist";
             }

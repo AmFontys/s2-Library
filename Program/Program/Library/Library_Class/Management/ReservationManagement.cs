@@ -7,7 +7,14 @@ namespace Library_Class
 {
 	public class ReservationManagement
 	{
-		private static DBConnection dBConnection = new DBConnection();
+		private static IDatabaseAccess databaseAccess = new DBConnection();
+
+		public ReservationManagement(IDatabaseAccess database)
+        {
+			databaseAccess = database;
+        }
+
+		
 		public bool MakeReservation(int itemId, int accountId, DateTime StartDate)
 		{
 			DateTime endDate = StartDate.AddDays(7);
@@ -19,11 +26,11 @@ namespace Library_Class
 			command.Parameters.Add(new MySqlParameter("@startDate", StartDate));
 			command.Parameters.Add(new MySqlParameter("@endDate", endDate));
 
-			if (dBConnection.ExecuteNoNQuery(command)>0) return true;
+			if (databaseAccess.ExecuteNoNQuery(command)>0) return true;
 			else return false;
 		}
 
-		public static void DeleteReservation(int id)
+		public void DeleteReservation(int id)
 		{
 			throw new NotImplementedException();
 		}
@@ -49,7 +56,7 @@ namespace Library_Class
 			command.CommandText = "SELECT COUNT(itemID) from reservation where StartDate >= @date and Enddate <= @date and itemId=@item ";
 			command.Parameters.Add(new MySqlParameter("@date", date));
 			command.Parameters.Add(new MySqlParameter("@item", itemId));
-			return dBConnection.ExecuteNoNQuery(command);
+			return databaseAccess.ExecuteNoNQuery(command);
 		}
 	}
 }

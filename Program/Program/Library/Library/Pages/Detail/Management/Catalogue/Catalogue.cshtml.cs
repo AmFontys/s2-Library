@@ -22,7 +22,8 @@ namespace Library.Pages.Detail.Management.Catalogue
             loadView();
             if (id != null & id > 1)
             {
-                int result = ItemManagement.DeleteItem(id);
+                ItemManagement management = new ItemManagement(new DBConnection());
+                int result = management.DeleteItem(id);
                 if (result == 0)
                 {
                    return RedirectToPage("./Catalogue");
@@ -40,8 +41,9 @@ namespace Library.Pages.Detail.Management.Catalogue
 
         private void loadView()
         {
-            books = ItemManagement.GetAllItems();
-            movies = ItemManagement.GetAllItem();
+            ItemManagement management = new ItemManagement(new DBConnection());
+            books = management.GetAllItems();
+            movies = management.GetAllItem();
         }
     }
 }

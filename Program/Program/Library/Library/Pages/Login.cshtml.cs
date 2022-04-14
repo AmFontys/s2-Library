@@ -28,7 +28,8 @@ namespace Library.Pages
 
         public IActionResult OnPost()
         {
-            bool loginsuccesfull = AccountManagement.Login(email,pass,out string role,out string id);
+            AccountManagement management = new AccountManagement(new DBConnection());
+            bool loginsuccesfull = management.Login(email,pass,out string role,out string id);
             if (ModelState.IsValid & loginsuccesfull)
             {
                 List<Claim> claims = new List<Claim>();

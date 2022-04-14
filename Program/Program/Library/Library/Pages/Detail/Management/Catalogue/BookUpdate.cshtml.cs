@@ -63,14 +63,15 @@ namespace Library.Pages.Detail.Management.Catalogue
         {
             if(id >=1)
             {
-                Book = (Book)ItemManagement.SearchItem(id, 'B');
+                ItemManagement management = new ItemManagement(new DBConnection());
+                Book = (Book)management.SearchItem(id, 'B');
                 itemID = id;
                 if (error != null) responseMessage = error;
                 return Page();
             }
             else
             {
-                return RedirectToPage("/Catalogue");
+                return RedirectToPage("/Detail/Management/Catalogue/Catalogue");
             }
         }
 
@@ -78,7 +79,8 @@ namespace Library.Pages.Detail.Management.Catalogue
         {            
             if (ModelState.IsValid)
             {
-                if (ItemManagement.UpdateItem(itemID, Name, ISBN, cost, Language, Description, Pages, Author, Publisher))
+                ItemManagement management = new ItemManagement(new DBConnection());
+                if (management.UpdateItem(itemID, Name, ISBN, cost, Language, Description, Pages, Author, Publisher))
                 {
                     return RedirectToPage("/Detail/Management/Catalogue/Catalogue");
                 }

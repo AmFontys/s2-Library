@@ -11,8 +11,9 @@ namespace Library.Pages.Catalog
         public List<Book> books { get; set; }
         public void OnGet()
         {
+            ItemManagement management = new ItemManagement(new DBConnection());
             books = new List<Book>();
-           books= ItemManagement.GetAllItems();
+           books= management.GetAllItems();
             
         }
 

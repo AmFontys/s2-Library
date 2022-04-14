@@ -5,7 +5,7 @@ namespace Library_App
 {
     public partial class Login : Form
     {
-        
+        private AccountManagement management= new  AccountManagement(new DBConnection());
         public Login()
         {
             InitializeComponent();
@@ -15,7 +15,7 @@ namespace Library_App
         {
             string email = txtEmail.Text;
             string pass = txtPass.Text;
-            bool loginsuccesfull = AccountManagement.Login(email, pass,out string role,out string id);
+            bool loginsuccesfull = management.Login(email, pass,out string role,out string id);
             if (loginsuccesfull)
             {
                 this.Hide();

@@ -36,7 +36,7 @@ namespace Library.Pages.Catalog
 
         public void OnPost()
         {
-            Reservation = new ReservationManagement();
+            Reservation = new ReservationManagement(new DBConnection());
             accountID = Convert.ToInt32(User.FindFirst("id").Value);
 
             if (ModelState.IsValid)

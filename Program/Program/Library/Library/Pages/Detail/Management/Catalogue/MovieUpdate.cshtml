@@ -2,3 +2,102 @@
 @model Library.Pages.Detail.Management.Catalogue.MovieUpdateModel
 @{
 }
+@section title{
+    New Movie
+}
+<form method="post" class="workerForm">
+    
+    <table class="formTable">
+        <tr>
+            <td><input value="@Model.itemID"  type="hidden" asp-for="itemID"/></td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Name" value="@Model.Movie.GetName()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="ISBN">ISBN</label>
+                <span asp-validation-for="ISBN">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="ISBN" value="@Model.Movie.GetISBN()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Language">Language</label>
+                <span asp-validation-for="Language">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Language" value="@Model.Movie.GetLanguage()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Description">Description</label>
+                <span asp-validation-for="Description">*</span>
+                </td>
+            <td>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" name="@Html.NameFor(m => m.Description)">@Model.Movie.GetDescription()</textarea>
+            </td>
+        </tr>   
+        <tr>
+            <td>
+                <label asp-for="cost">cost</label>
+                <span asp-validation-for="cost">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="cost" value="@Model.Movie.GetCost()"/>
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label asp-for="SubtitleLanguage">Subtitle Language(s)</label>
+                <span asp-validation-for="SubtitleLanguage">*</span>
+                </td>
+            <td>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" name="@Html.NameFor(m => m.SubtitleLanguage)">@Model.Movie.GetSubTitle()</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Producer">Producer</label>
+                <span asp-validation-for="Producer">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Producer" value="@Model.Movie.GetProducer()"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="timeInMin">timeInMin</label>
+                <span asp-validation-for="timeInMin">*</span>
+                </td>
+            <td>
+                <input type="number"  required="required" aria-required="true" asp-for="timeInMin" value="@Model.Movie.GetTime()"/>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <label asp-for="Demographic">Demographic</label>
+                <span asp-validation-for="Demographic">*</span>
+                </td>
+            <td>
+                <input type="number"  required="required" aria-required="true" asp-for="Demographic" value="@Model.Movie.GetDemographic()"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2> <input type="submit" value="Submit" /></td>
+        </tr>
+        <tr>
+    <td colspan=3>
+    @Html.Raw(@Model.responseMessage)</td>
+    </tr>
+    </table>
+</form> 

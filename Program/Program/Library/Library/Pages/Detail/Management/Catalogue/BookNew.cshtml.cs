@@ -9,7 +9,7 @@ namespace Library.Pages.Detail.Management.Catalogue
     {
         
         public string responseMessage { get; set; }
-
+        private ItemManagement management { get; set; }
         [BindProperty][Required][DataType(DataType.Text)][RegularExpression(@"^[a-zA-Z0-9_\-\s]*$",ErrorMessage ="There are invalid charters in the name")]
         public string Name { get; set; }
 
@@ -54,6 +54,7 @@ namespace Library.Pages.Detail.Management.Catalogue
 
         public string Publisher { get; set; }
 
+
         public void OnGet()
         {
         }
@@ -62,7 +63,8 @@ namespace Library.Pages.Detail.Management.Catalogue
         {
             if (ModelState.IsValid)
             {
-                if (ItemManagement.AddItem(Name,ISBN,cost,Language,Description,Pages,Author,Publisher))
+                management = new ItemManagement(new DBConnection());
+                if (management.AddItem(Name,ISBN,cost,Language,Description,Pages,Author,Publisher))
                     responseMessage = "Item succesfully added";
                 else responseMessage = "Item not succesfully added";
             }

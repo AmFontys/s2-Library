@@ -46,8 +46,9 @@ namespace Library.Pages.Detail.User
         public string Password { get; set; }
 
         public void OnGet()
-        {              
-            Account = AccountManagement.FindAccount(GetID());
+        {
+            AccountManagement management = new AccountManagement(new DBConnection());
+            Account = management.FindAccount(GetID());
         }
 
         public void OnPost()
@@ -57,7 +58,8 @@ namespace Library.Pages.Detail.User
             if (Password == null) ModelState["Password"].ValidationState = ModelValidationState.Valid;
             if (ModelState.IsValid)
             {
-                if (AccountManagement.UpdateAccount(id, Fname, Lname, Email, Telephone, Street, HouseNum, Zipcode, City, Password))
+                AccountManagement management = new AccountManagement(new DBConnection());
+                if (management.UpdateAccount(id, Fname, Lname, Email, Telephone, Street, HouseNum, Zipcode, City, Password))
                 {
                     msg = $"Your account is updated";
                 }

@@ -2,4 +2,100 @@
 @model Library.Pages.Detail.Management.Catalogue.MovieNewModel
 @{
 }
-`Name`, `ISBN`, `Language`, `Description`, `cost` `SubtitleLanguage`, `Producer`, `timeInMin`, `Demographic`
+@section title{
+    New Movie
+}
+<form method="post" class="workerForm">
+    
+    <table class="formTable">
+        
+        <tr>
+            <td>
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="ISBN">ISBN</label>
+                <span asp-validation-for="ISBN">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="ISBN"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Language">Language</label>
+                <span asp-validation-for="Language">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Language"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Description">Description</label>
+                <span asp-validation-for="Description">*</span>
+                </td>
+            <td>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" asp-for="Description"></textarea>
+            </td>
+        </tr>   
+        <tr>
+            <td>
+                <label asp-for="cost">cost</label>
+                <span asp-validation-for="cost">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="cost"/>
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label asp-for="SubtitleLanguage">Subtitle Language(s)</label>
+                <span asp-validation-for="SubtitleLanguage">*</span>
+                </td>
+            <td>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" asp-for="SubtitleLanguage"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="Producer">Producer</label>
+                <span asp-validation-for="Producer">*</span>
+                </td>
+            <td>
+                <input type="text"  required="required" aria-required="true" asp-for="Producer"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label asp-for="timeInMin">timeInMin</label>
+                <span asp-validation-for="timeInMin">*</span>
+                </td>
+            <td>
+                <input type="number"  required="required" aria-required="true" asp-for="timeInMin"/>
+            </td>
+        </tr> 
+        <tr>
+            <td>
+                <label asp-for="Demographic">Demographic</label>
+                <span asp-validation-for="Demographic">*</span>
+                </td>
+            <td>
+                <input type="number"  required="required" aria-required="true" asp-for="Demographic"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan=2> <input type="submit" value="Submit" /></td>
+        </tr>
+        <tr>
+    <td colspan=3>
+    @Html.Raw(@Model.responseMessage)</td>
+    </tr>
+    </table>
+</form> 

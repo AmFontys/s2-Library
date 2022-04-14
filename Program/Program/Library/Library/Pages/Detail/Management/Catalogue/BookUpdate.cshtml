@@ -45,7 +45,7 @@
                 <span asp-validation-for="Description">*</span>
                 </td>
             <td>
-                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" asp-for="Description" value="@Model.Book.GetDescription()"></textarea>
+                <textarea spellcheck="true" rows=3   cols=30 required="required" aria-required="true" asp-for="Description">@Model.Book.GetDescription()</textarea>
             </td>
         </tr>   
         <tr>

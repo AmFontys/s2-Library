@@ -7,11 +7,16 @@ using System.Text;
 
 namespace Library_Class
 {
-	public abstract class ItemManagement
+	public class ItemManagement
 	{
-		private static DBConnection dBConnection=new();
+		private static IDatabaseAccess databaseAccess;
 
-		public static bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public ItemManagement(IDatabaseAccess database)
+        {
+			databaseAccess = database;
+        }
+
+		public bool AddItem(string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +
@@ -25,11 +30,11 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@page", page));
 			cmd.Parameters.Add(new MySqlParameter("@author",author));
 			cmd.Parameters.Add(new MySqlParameter("@publisher",publisher));
-			if(dBConnection.ExecuteNoNQuery(cmd)>0)return true;
+			if(databaseAccess.ExecuteNoNQuery(cmd)>0)return true;
 			else return false;
 		}
 
-		public static bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public bool AddItem(string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "INSERT INTO item (`Name`, `ISBN`, `Language`, `Description`, `cost`) VALUES (@name,@isbn,@language,@description,@cost);" +
@@ -45,11 +50,11 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@time",time));
 			cmd.Parameters.Add(new MySqlParameter("@demographic", demographic));
 
-			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			if (databaseAccess.ExecuteNoNQuery(cmd) > 0) return true;
 			else return false;
 		}
 
-		public static bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
+		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, int page, string author, string publisher)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +
@@ -64,11 +69,11 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@page", page));
 			cmd.Parameters.Add(new MySqlParameter("@author", author));
 			cmd.Parameters.Add(new MySqlParameter("@publisher", publisher));
-			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			if (databaseAccess.ExecuteNoNQuery(cmd) > 0) return true;
 			else return false;
 		}
 
-		public static bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
+		public bool UpdateItem(int id, string name, string ISBN, double cost, string language, string description, string subtitle, string producer, int time, string demographic)
 		{
 			MySqlCommand cmd = new MySqlCommand();
 			cmd.CommandText = "update item set `Name`=@name, `ISBN`=@isbn, `Language`=@language, `Description`=@description, `cost`=@cost where itemID=@id;" +
@@ -84,11 +89,11 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@producer", producer));
 			cmd.Parameters.Add(new MySqlParameter("@time", time));
 			cmd.Parameters.Add(new MySqlParameter("@demographic", demographic));
-			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			if (databaseAccess.ExecuteNoNQuery(cmd) > 0) return true;
 			else return false;
 		}
 
-		public static int DeleteItem(int? id)
+		public int DeleteItem(int? id)
 		{
 			if(id ==null | id<1) return 0;
 			MySqlCommand cmd = new MySqlCommand();
@@ -96,16 +101,16 @@ namespace Library_Class
 				"DELETE FROM `movieinfo` WHERE itemId=@id;" +
 				"DELETE FROM `item` WHERE itemID=@id;";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
-			return dBConnection.ExecuteNoNQuery(cmd);
+			return databaseAccess.ExecuteNoNQuery(cmd);
 		}
 
-		public static object SearchItem(int data, char searchOn)
+		public object SearchItem(int data, char searchOn)
 		{
 			List<Book> books = new List<Book>();
 			List<Movie> movies = new List<Movie>();
 			object item = null;
 			MySqlCommand command = new MySqlCommand();
-			dBConnection = new DBConnection();
+			databaseAccess = new DBConnection();
 			command.CommandText = "Select `item`.*  ";
 			if (searchOn == 'B')
 			{
@@ -119,7 +124,7 @@ namespace Library_Class
 
 			}
 			command.Parameters.Add(new MySqlParameter("@Id", data));
-			DataSet ds = dBConnection.ExecuteReader(command);
+			DataSet ds = databaseAccess.ExecuteReader(command);
 			if (ds.Tables.Count > 0)
 			{
 				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -133,7 +138,7 @@ namespace Library_Class
 			return item;
 		}
 
-		public static List<Book> GetAllItems()
+		public List<Book> GetAllItems()
 		{
 			List<Book> booklist = new();
 			MySqlCommand command = new MySqlCommand();
@@ -152,16 +157,16 @@ namespace Library_Class
 			return booklist;
 		}
 
-		public static List<Movie> GetAllItem()
+		public List<Movie> GetAllItem()
 		{
 			List<Movie> movielist = new();
 			MySqlCommand command = new MySqlCommand();
-			DBConnection dBConnection = new DBConnection();
+			DBConnection databaseAccess = new DBConnection();
 
 			command.CommandText = "SELECT `item`.*, `movieinfo`.`SubtitleLanguage`, `movieinfo`.`Producer`, " +
 				"`movieinfo`.`timeInMin`, `movieinfo`.`Demographic` " +
 				"FROM `item` RIGHT JOIN `movieinfo` ON `movieinfo`.`ItemID` = `item`.`ItemID`; ";
-			DataSet ds = dBConnection.ExecuteReader(command);
+			DataSet ds = databaseAccess.ExecuteReader(command);
 			if (ds.Tables.Count > 0)
 			{
 				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)

@@ -10,11 +10,16 @@ namespace Library_Class
 	public class AccountManagement
 	{
 		static MySqlCommand cmd = new MySqlCommand();
-		static DBConnection dBConnection = new DBConnection();
+		static IDatabaseAccess databaseAccess;
 
+		public AccountManagement(IDatabaseAccess database)
+        {
+			databaseAccess = database;
+        }
+		
 
 		#region login
-		public static bool Login(string email, string password, out string role,out string idUser)
+		public bool Login(string email, string password, out string role,out string idUser)
 		{
 			role = "User";
 			idUser = "-1";
@@ -35,14 +40,14 @@ namespace Library_Class
 			return false;
 		}
 
-		private static string CheckAccountLevel(string id)
+		private string CheckAccountLevel(string id)
 		{
 			cmd = new MySqlCommand();
-			dBConnection= new DBConnection();
+			databaseAccess= new DBConnection();
 
 			cmd.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
-			DataSet set = dBConnection.ExecuteReader(cmd);
+			DataSet set = databaseAccess.ExecuteReader(cmd);
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				return (string)set.Tables[0].Rows[0][0];
@@ -50,16 +55,16 @@ namespace Library_Class
 			return "User";
 		}
 
-		private static bool CompareGivenPassword(string email, string password, out string id)
+		private bool CompareGivenPassword(string email, string password, out string id)
 		{
 			id = "";
 			cmd = new MySqlCommand();
-			dBConnection = new DBConnection();
+			databaseAccess = new DBConnection();
 
 			cmd.CommandText = "Select AccountID From account where Email=@mail and Password=@pass";
 			cmd.Parameters.Add(new MySqlParameter("@mail", email));
 			cmd.Parameters.Add(new MySqlParameter("@pass", password));
-			DataSet set = dBConnection.ExecuteReader(cmd);
+			DataSet set = databaseAccess.ExecuteReader(cmd);
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				id = Convert.ToString(set.Tables[0].Rows[0][0]);
@@ -68,14 +73,14 @@ namespace Library_Class
 			else return false;
 		}
 
-		private static bool ExistingEmail(string email,  out string key)
+		private bool ExistingEmail(string email,  out string key)
 		{
 			cmd = new MySqlCommand();
-			dBConnection= new DBConnection();
+			databaseAccess= new DBConnection();
 
 			cmd.CommandText = "Select Keyword From account where Email=@mail";
 			cmd.Parameters.Add(new MySqlParameter("@mail", email));
-			DataSet set = dBConnection.ExecuteReader(cmd);
+			DataSet set = databaseAccess.ExecuteReader(cmd);
 			key = "";
 
 			if (set.Tables.Count < 0) return false;
@@ -91,9 +96,8 @@ namespace Library_Class
 		}
         #endregion
         #region adding an account
-        public static bool AddAccount(string fname, string lname, string email, string telephone, string street, string houseNum, string zipcode, string city, string password)
+        public bool AddAccount(string fname, string lname, string email, string telephone, string street, string houseNum, string zipcode, string city, string password)
 		{
-			dBConnection = new DBConnection();
 
 			byte[] salt = Account.GenerateKeyWord();
 			string keyword = Convert.ToBase64String(salt);
@@ -119,17 +123,16 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@Password", pass));
 			cmd.Parameters.Add(new MySqlParameter("@Key", keyword));
 			cmd.Parameters.Add(new MySqlParameter("@CardID", card));
-			if( dBConnection.ExecuteNoNQuery(cmd)>0) return true;
+			if( databaseAccess.ExecuteNoNQuery(cmd)>0) return true;
 			else return false;
 		}
-		private static bool checkIfAlreadyExist(string mail)
+		private bool checkIfAlreadyExist(string mail)
 		{
 			cmd = new MySqlCommand();
-			dBConnection = new DBConnection();
 
 			cmd.CommandText = "Select Email from account where Email=@mail";
 			cmd.Parameters.Add(new MySqlParameter("@mail", mail));
-			DataSet set = dBConnection.ExecuteReader(cmd);
+			DataSet set = databaseAccess.ExecuteReader(cmd);
 			if (set.Tables[0].Rows.Count > 0)
 				return true;
 			else return false;
@@ -137,7 +140,7 @@ namespace Library_Class
 
         #endregion
 
-        public static bool UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
+        public bool UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
 		{
 			cmd = new MySqlCommand();
 			cmd.CommandText = "UPDATE `account` SET `Firstname`=@fname,`Lastname`=@lname,`Email`=@mail,"+
@@ -166,23 +169,23 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@zip",zipcode));
 			cmd.Parameters.Add(new MySqlParameter("@city",city));
 
-			if (dBConnection.ExecuteNoNQuery(cmd) > 0) return true;
+			if (databaseAccess.ExecuteNoNQuery(cmd) > 0) return true;
 			else return false;
 		}
 
-		public static void DeleteAccount(int id)
+		public void DeleteAccount(int id)
 		{
 			throw new NotImplementedException();
 		}
 
         #region findAccount
-		public static Account FindAccount(int id)
+		public Account FindAccount(int id)
         {
 			if (id == 0 || id == null) return null;
 			cmd = new MySqlCommand();
 			cmd.CommandText = "Select * from account where AccountID=@id";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
-			DataSet data = dBConnection.ExecuteReader(cmd);
+			DataSet data = databaseAccess.ExecuteReader(cmd);
 			if (data.Tables.Count < 1) return null;
             else
             {

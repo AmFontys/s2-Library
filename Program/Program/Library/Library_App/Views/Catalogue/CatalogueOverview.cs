@@ -16,6 +16,7 @@ namespace Library_App.Views.Account
         object storage;
         char type;
         private static CatalogueOverview _instance;
+        private ItemManagement management = new ItemManagement(new DBConnection());
         public static CatalogueOverview Instance
         {
             get
@@ -71,7 +72,7 @@ namespace Library_App.Views.Account
             type = 'b';
 
             List<Book> books = new List<Book>();
-            books = ItemManagement.GetAllItems();
+            books = management.GetAllItems();
             InsertToViewBook(books);
         }
 
@@ -80,7 +81,7 @@ namespace Library_App.Views.Account
             makeButtonsDissapear();
             type = 'm';
 
-            List<Movie> movies = ItemManagement.GetAllItem();
+            List<Movie> movies = management.GetAllItem();
             InsertToViewMovie(movies);
 
         }
