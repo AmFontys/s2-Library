@@ -9,8 +9,8 @@ namespace Library_Class
 {
 	public class AccountManagement
 	{
-		static MySqlCommand cmd = new MySqlCommand();
-		static IDatabaseAccess databaseAccess;
+		private static MySqlCommand cmd = new MySqlCommand();
+        private static IDatabaseAccess databaseAccess;
 
 		public AccountManagement(IDatabaseAccess database)
         {
@@ -48,7 +48,7 @@ namespace Library_Class
 			cmd.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
 			DataSet set = databaseAccess.ExecuteReader(cmd);
-			if (set.Tables[0].Rows.Count > 0)
+			if (set.Tables.Count > 0)
 			{
 				return (string)set.Tables[0].Rows[0][0];
 			}
@@ -65,7 +65,7 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@mail", email));
 			cmd.Parameters.Add(new MySqlParameter("@pass", password));
 			DataSet set = databaseAccess.ExecuteReader(cmd);
-			if (set.Tables[0].Rows.Count > 0)
+			if (set.Tables.Count > 0)
 			{
 				id = Convert.ToString(set.Tables[0].Rows[0][0]);
 				return true;
@@ -83,7 +83,7 @@ namespace Library_Class
 			DataSet set = databaseAccess.ExecuteReader(cmd);
 			key = "";
 
-			if (set.Tables.Count < 0) return false;
+			if (set.Tables.Count <= 0) return false;
 			if (set.Tables[0].Rows.Count > 0)
 			{
 				key = set.Tables[0].Rows[0][0].ToString();
@@ -133,8 +133,12 @@ namespace Library_Class
 			cmd.CommandText = "Select Email from account where Email=@mail";
 			cmd.Parameters.Add(new MySqlParameter("@mail", mail));
 			DataSet set = databaseAccess.ExecuteReader(cmd);
-			if (set.Tables[0].Rows.Count > 0)
-				return true;
+			if (set.Tables.Count > 0)
+			{
+				if (set.Tables[0].Rows.Count > 0)
+					return true;
+				else return false;
+			}
 			else return false;
 		}
 
