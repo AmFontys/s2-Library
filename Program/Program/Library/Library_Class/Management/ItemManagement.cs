@@ -138,6 +138,40 @@ namespace Library_Class
 			return item;
 		}
 
+		public List<object> SearchItem(string text, string category, char searchOn)
+		{
+			char[] InvalidChars = { '!', ',', ';', '@', '%', ':' };
+			if (text.IndexOfAny(InvalidChars) >= 0) return null;
+
+			List<object> items = new List<object>();
+			MySqlCommand command = new MySqlCommand();			
+			command.CommandText = "Select `item`.*  ";
+			if (searchOn == 'B')
+			{
+				command.CommandText += ",`bookinfo`.`Pages`, `bookinfo`.`Author`, `bookinfo`.`Publisher`BookInfo FROM `item`  RIGHT JOIN `bookinfo` ON `bookinfo`.`ItemID` = `item`.`ItemID`";
+			}
+			else if (searchOn == 'M')
+			{
+				command.CommandText += ", `movieinfo`.`SubtitleLanguage`, `movieinfo`.`Producer`, " +
+				"`movieinfo`.`timeInMin`, `movieinfo`.`Demographic` " +
+				"FROM `item` RIGHT JOIN `movieinfo` ON `movieinfo`.`ItemID` = `item`.`ItemID` ";
+
+			}
+			command.CommandText += $"Where {category} LIKE '%{text}%'; ";
+			DataSet ds = databaseAccess.ExecuteReader(command);
+			if (ds.Tables.Count > 0)
+			{
+				for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+				{
+					if (searchOn == 'B')
+						items.Add(Book.makeBook(ds, i));
+					else
+						items.Add(Movie.MakeMovie(ds, i));
+				}
+			}
+			return items;
+        }
+
 		public List<Book> GetAllItems()
 		{
 			List<Book> booklist = new();

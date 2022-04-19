@@ -34,6 +34,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbSortOn = new System.Windows.Forms.ComboBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cmbSeacrh = new System.Windows.Forms.ComboBox();
             this.btnMovieLoad = new System.Windows.Forms.Button();
             this.btnBookLoad = new System.Windows.Forms.Button();
             this.lbView = new System.Windows.Forms.ListBox();
@@ -111,6 +116,11 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.cmbSortOn);
+            this.panel3.Controls.Add(this.txtSearch);
+            this.panel3.Controls.Add(this.btnSearch);
+            this.panel3.Controls.Add(this.cmbSeacrh);
             this.panel3.Controls.Add(this.btnMovieLoad);
             this.panel3.Controls.Add(this.btnBookLoad);
             this.panel3.Controls.Add(this.lblSectionName);
@@ -119,6 +129,64 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1192, 130);
             this.panel3.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(921, 106);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 17);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "Sort on:";
+            // 
+            // cmbSortOn
+            // 
+            this.cmbSortOn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortOn.FormattingEnabled = true;
+            this.cmbSortOn.Items.AddRange(new object[] {
+            "Name",
+            "ISBN",
+            "Description",
+            "Language"});
+            this.cmbSortOn.Location = new System.Drawing.Point(1033, 99);
+            this.cmbSortOn.Name = "cmbSortOn";
+            this.cmbSortOn.Size = new System.Drawing.Size(151, 28);
+            this.cmbSortOn.TabIndex = 26;
+            this.cmbSortOn.TextChanged += new System.EventHandler(this.cmbSortOn_TextChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(745, 34);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(125, 27);
+            this.txtSearch.TabIndex = 25;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Font = new System.Drawing.Font("Good Times", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.Location = new System.Drawing.Point(1033, 34);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(137, 29);
+            this.btnSearch.TabIndex = 24;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // cmbSeacrh
+            // 
+            this.cmbSeacrh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSeacrh.FormattingEnabled = true;
+            this.cmbSeacrh.Items.AddRange(new object[] {
+            "Name",
+            "ISBN",
+            "Description",
+            "Language"});
+            this.cmbSeacrh.Location = new System.Drawing.Point(876, 33);
+            this.cmbSeacrh.Name = "cmbSeacrh";
+            this.cmbSeacrh.Size = new System.Drawing.Size(151, 28);
+            this.cmbSeacrh.TabIndex = 23;
             // 
             // btnMovieLoad
             // 
@@ -204,5 +272,10 @@
         private Button btnMovieLoad;
         private Button btnBookLoad;
         private ListBox lbView;
+        private TextBox txtSearch;
+        private Button btnSearch;
+        private ComboBox cmbSeacrh;
+        private Label label1;
+        private ComboBox cmbSortOn;
     }
 }

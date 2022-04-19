@@ -56,7 +56,7 @@ namespace Library_Class
 
 		public override string ToString()
 		{
-			return $"{this._name}: {this._producer}, {this._demographic},{this._timeÌnMin}; {this.GetDescription}";
+			return $"{this._name}: {this._producer}, {this._demographic},{this._timeÌnMin}; {this.GetDescription()}";
 		}
 
 		protected override void AddGenre()

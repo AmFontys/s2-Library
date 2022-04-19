@@ -82,5 +82,19 @@ namespace Library_Testing
             Assert.AreNotEqual(1,movies);
         }
 
+        [TestMethod]
+        public void TestSearchItemListValid()
+        {
+            List<object> list = management.SearchItem("a", "Name", 'B');
+            Assert.AreNotEqual(1, list.Count);
+        }
+
+        [TestMethod]
+        public void TestSearchItemListInvalid()
+        {
+            List<object> list = management.SearchItem("!", "Name", 'M');
+            Assert.AreEqual(null, list);
+        }
+
     }
 }
