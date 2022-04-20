@@ -32,7 +32,7 @@ namespace Library_Testing
         [TestMethod()]
         public void UpdateAccountTest()
         {
-            Assert.IsTrue(management.UpdateAccount(1, "Michelle", "Kryger", "Random@mail.com", "12345687901", "RandomBigStreet", "16d", "3345WQ", "AnyCity", "NewPassw0rd"));
+            Assert.IsTrue(management.UpdateAccount(3, "Michelle", "Kryger", "Random@mail.com", "12345687901", "RandomBigStreet", "16d", "3345WQ", "AnyCity", "NewPassw0rd"));
         }
     }
 }

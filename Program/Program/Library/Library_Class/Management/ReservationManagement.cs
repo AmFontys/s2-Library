@@ -14,9 +14,11 @@ namespace Library_Class
 			databaseAccess = database;
         }
 
-		
+		//This function makes the reservation with the given itemid the account id of the user and
+		//the startDate that it the user wants to begin with renting this item
 		public bool MakeReservation(int itemId, int accountId, DateTime StartDate)
 		{
+			//The endDate is a week later because of regular lending times that are used in libraryies
 			DateTime endDate = StartDate.AddDays(7);
 
 			MySqlCommand command = new MySqlCommand();
@@ -50,6 +52,7 @@ namespace Library_Class
 			throw new NotImplementedException();
 		}
 
+		//This function checks if the item is still availble for use in the date that the user wants to rent this particular item
 		public int IsItemAvailble(int itemId, DateTime date)
         {
 			MySqlCommand command = new MySqlCommand();

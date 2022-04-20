@@ -17,6 +17,11 @@ namespace Library_Class
 			databaseAccess = database;
         }
 		
+		//This login function first checks if the email exists first of all if then it
+		//returns a byte array for the key and generates the password again.
+		//After the generated password is done it compares the actual password with the given password and if false it does nothing further
+		//If it's true it checks the accountlevel with the id that is given from the function CompareGivenPassword and
+		//assigns it to the role and returns the id from the user
 
 		#region login
 		public bool Login(string email, string password, out string role,out string idUser)
@@ -40,10 +45,12 @@ namespace Library_Class
 			return false;
 		}
 
+		//This function checks what the level of the account is and returns the role in string form
+		//if there is no role assigned to this person it returns user otherwise the actual level.
+
 		private string CheckAccountLevel(string id)
 		{
 			cmd = new MySqlCommand();
-			databaseAccess= new DBConnection();
 
 			cmd.CommandText = "Select Levelname from level inner join worker on worker.WorkerLevel=level.LevelID where worker.AccountID=@id";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
@@ -55,15 +62,17 @@ namespace Library_Class
 			return "User";
 		}
 
+		//This compares the given password with the actual password of the user with the given email
+		//If it's succesfull it returns the id of the user.
 		private bool CompareGivenPassword(string email, string password, out string id)
 		{
 			id = "";
 			cmd = new MySqlCommand();
-			databaseAccess = new DBConnection();
 
 			cmd.CommandText = "Select AccountID From account where Email=@mail and Password=@pass";
 			cmd.Parameters.Add(new MySqlParameter("@mail", email));
 			cmd.Parameters.Add(new MySqlParameter("@pass", password));
+			//Checks if there is any rows that can be returned with the command
 			DataSet set = databaseAccess.ExecuteReader(cmd);
 			if (set.Tables.Count > 0)
 			{
@@ -73,10 +82,11 @@ namespace Library_Class
 			else return false;
 		}
 
+		//This function checks if the email exists already in the database and
+		//returns a bollean and the key if the email/account exists.
 		private bool ExistingEmail(string email,  out string key)
 		{
 			cmd = new MySqlCommand();
-			databaseAccess= new DBConnection();
 
 			cmd.CommandText = "Select Keyword From account where Email=@mail";
 			cmd.Parameters.Add(new MySqlParameter("@mail", email));
@@ -96,16 +106,25 @@ namespace Library_Class
 		}
         #endregion
         #region adding an account
+		//This function adds a normal account and if succesfull returns a boolean
         public bool AddAccount(string fname, string lname, string email, string telephone, string street, string houseNum, string zipcode, string city, string password)
 		{
-
+			//These 4 lines are for automatic genertating
+			//First it creates a salt to add to the password to make it more secure
+			//the variable keyword is used to safe the salt and this can later be used to remake the hased password
+			//The third line is for creating a hashed password with the use of a password given by the user and the generated salt
+			//The last line is to create a card for the user itself which is not needed but
+			//in the future can be used to link it to this user and then they can reserve/rent books/movies on location.
 			byte[] salt = Account.GenerateKeyWord();
 			string keyword = Convert.ToBase64String(salt);
 			string pass = Account.GeneratePassword(salt, password);
 			string card = Account.GenerateCard();
 
+			//This checks if there is already an account whith this email if so then it reurns false and
+			//a account can't be created with this email.
 			bool exist = checkIfAlreadyExist(email);
 			if (exist) return false;
+
 			cmd = new MySqlCommand();
 			cmd.CommandText = @"INSERT INTO `account`" +
 				"(`Firstname`, `Lastname`, `Email`, `Telephone`, `Streetname`" +
@@ -123,9 +142,11 @@ namespace Library_Class
 			cmd.Parameters.Add(new MySqlParameter("@Password", pass));
 			cmd.Parameters.Add(new MySqlParameter("@Key", keyword));
 			cmd.Parameters.Add(new MySqlParameter("@CardID", card));
+
 			if( databaseAccess.ExecuteNoNQuery(cmd)>0) return true;
 			else return false;
 		}
+		//Checks to see if the email already exists in the database
 		private bool checkIfAlreadyExist(string mail)
 		{
 			cmd = new MySqlCommand();
@@ -143,7 +164,7 @@ namespace Library_Class
 		}
 
         #endregion
-
+		//This function updates a regular account and can be used by every user.
         public bool UpdateAccount(int id, string fname, string lname, string email, string telephone, string street, string housenum, string zipcode, string city, string password)
 		{
 			cmd = new MySqlCommand();
@@ -151,6 +172,7 @@ namespace Library_Class
 				" `Telephone`=@tel,`Streetname`=@street,`housenumber`=@houseNum,`Zipcode`=@zip," +
 				" `City`=@city ";
 
+			//If the password variable is filled in then it creates a whole new hashed password for them 
 			if (password != "" & password !=null)
             {
 				byte[] salt=Account.GenerateKeyWord();
@@ -183,12 +205,14 @@ namespace Library_Class
 		}
 
         #region findAccount
+		//This returns the account with the given id
 		public Account FindAccount(int id)
         {
 			if (id == 0 || id == null) return null;
 			cmd = new MySqlCommand();
 			cmd.CommandText = "Select * from account where AccountID=@id";
 			cmd.Parameters.Add(new MySqlParameter("@id", id));
+
 			DataSet data = databaseAccess.ExecuteReader(cmd);
 			if (data.Tables.Count < 1) return null;
             else
