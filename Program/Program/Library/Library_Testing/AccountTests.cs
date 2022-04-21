@@ -17,9 +17,7 @@ namespace Library_Testing
         public void LoginTest()
         {
             AccountManagement managementNew = new AccountManagement(new DBConnection());
-            string role = "";
-            string id = "";
-            bool sussecfull = managementNew.Login("arenco@mail.nl", "1234567890",out role,out id);
+            bool sussecfull = managementNew.Login("arenco@mail.nl", "1234567890", out string role, out string id);
             Assert.IsTrue(sussecfull);
         }
 

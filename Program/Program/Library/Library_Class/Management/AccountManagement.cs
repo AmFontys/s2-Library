@@ -76,8 +76,12 @@ namespace Library_Class
 			DataSet set = databaseAccess.ExecuteReader(cmd);
 			if (set.Tables.Count > 0)
 			{
-				id = Convert.ToString(set.Tables[0].Rows[0][0]);
-				return true;
+				if (set.Tables[0].Rows.Count > 0)
+				{
+					id = Convert.ToString(set.Tables[0].Rows[0][0]);
+					return true;
+				}
+				else return false;
 			}
 			else return false;
 		}

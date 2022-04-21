@@ -20,6 +20,7 @@ namespace Library_App
             {
                 this.Hide();
                 MainForm main = new MainForm();
+                MainForm.Instance = main;
                 main.ShowDialog();
                 this.Show();
             }

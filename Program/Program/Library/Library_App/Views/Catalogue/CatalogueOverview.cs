@@ -32,6 +32,7 @@ namespace Library_App.Views.Account
         {
             InitializeComponent();
             cmbSeacrh.SelectedIndex = 1;
+            lbView.Items.Clear();
         }
 
         public void InsertToViewBook(List<Book> data)
@@ -64,7 +65,9 @@ namespace Library_App.Views.Account
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
+            lblSectionName.Text = "Update";
+            MainForm.Instance.BringUpdateCatalogueToFront(storage,type);
+            makeButtonsDissapear();
         }
 
         private void btnBookLoad_Click(object sender, EventArgs e)

@@ -13,9 +13,18 @@ namespace Library_App.Views
 {
     public partial class MainForm : Form
     {
+        private static MainForm _instance=null;
+        public static MainForm Instance
+        {
+            get { return _instance; }
+            set { _instance = value; }
+        }
+
         public MainForm()
         {
             InitializeComponent();
+
+            
         }
 
         private void btnEmployee_Click(object sender, EventArgs e)
@@ -40,6 +49,19 @@ namespace Library_App.Views
             }
             else
                 CatalogueOverview.Instance.BringToFront();
+        }
+
+        public void BringUpdateCatalogueToFront(object data, char type)
+        {
+            if (!panelContentHolder.Controls.Contains(CatalogueUpdate.Instance))
+            {
+                panelContentHolder.Controls.Add(CatalogueUpdate.Instance);
+                CatalogueUpdate.Instance.Dock = DockStyle.Fill;
+                CatalogueUpdate.Instance.BringToFront();
+            }
+            else
+                CatalogueUpdate.Instance.BringToFront();
+            CatalogueUpdate.Instance.LoadData(data, type);
         }
 
         private void btnEvent_Click(object sender, EventArgs e)

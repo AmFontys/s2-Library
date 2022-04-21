@@ -13,16 +13,37 @@ namespace Library_App.Views.Account
 {
     public partial class CatalogueUpdate : UserControl
     {
-        public CatalogueUpdate(List<string> data,char type)
+        Item item = null;
+        private static CatalogueUpdate _instance;
+        public static CatalogueUpdate Instance
         {
-            InitializeComponent();
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new CatalogueUpdate();
+                }
+                return _instance;
+            }
+        }
+
+        public CatalogueUpdate()
+        {
+            InitializeComponent();           
+        }
+
+        public void LoadData(object data, char type)
+        {
             MakeControlsDissapear();
-            if (type == 'b') LoadDataBook();
-            else LoadDataMovie();
+            if (type == 'B') LoadDataBook((Book)data);
+            else LoadDataMovie((Movie)data);
+            item = (Item)data;
         }
 
         private void MakeControlsDissapear()
         {
+            nudPages.Value = 1;
+            nudTimeMin.Value = 1;
             //Book labels
             lblPages.Visible = false;
             lblAuthor.Visible = false;
@@ -45,9 +66,18 @@ namespace Library_App.Views.Account
             txtSubtitle.Visible=false;
         }
 
-        private void LoadDataMovie()
+        private void LoadDataMovie(Movie data)
         {
             MakeMovieControlsAppear();
+            txtName.Text = data.GetName();
+            txtISBN.Text = data.GetISBN();
+            txtLanguage.Text = data.GetLanguage();
+            txtCost.Text = data.GetCost().ToString();
+            txtDescription.Text = data.GetDescription();
+            txtProducer.Text = data.GetProducer();
+            nudTimeMin.Value = data.GetTime();
+            txtDemographic.Text = data.GetDemographic();
+            txtSubtitle.Text = data.GetSubTitle();
         }
 
         private void MakeMovieControlsAppear()
@@ -64,9 +94,18 @@ namespace Library_App.Views.Account
             txtSubtitle.Visible = true;
         }
 
-        private void LoadDataBook()
+        private void LoadDataBook(Book data)
         {
             MakeBookControlsAppear();
+            txtName.Text = data.GetName();
+            txtISBN.Text = data.GetISBN();
+            txtLanguage.Text = data.GetLanguage();
+            txtCost.Text = data.GetCost().ToString();
+            txtDescription.Text = data.GetLanguage();
+            if(data.GetPages()<1)nudPages.Value = 1;
+            else nudPages.Value = data.GetPages();
+            txtAuthor.Text = data.GetAuthor();
+            txtPublisher.Text = data.GetPublisher();
         }
 
         private void MakeBookControlsAppear()
@@ -83,7 +122,29 @@ namespace Library_App.Views.Account
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            string name = txtName.Text;
+            string isbn = txtISBN.Text;
+            double cost = Convert.ToDouble(txtCost.Text);
+            string language = txtLanguage.Text;
+            string description = txtDescription.Text;
 
+
+            ItemManagement management = new ItemManagement(new DBConnection());
+            if (nudPages.Value != 0 && nudTimeMin.Value == 1) {
+                int pages = (int)nudPages.Value;
+                string author = txtAuthor.Text;
+                string publisher = txtPublisher.Text;
+                management.UpdateItem(item.GetID(), name, isbn, cost, language, description, pages, author, publisher);
+                MessageBox.Show("Book succesfully updated");
+            }
+            else if (nudPages.Value == 1 & nudTimeMin.Value !=0) {
+                string subTitle = txtSubtitle.Text;
+                string producer = txtProducer.Text;
+                int time = (int)nudTimeMin.Value;
+                string demographic = txtDemographic.Text;
+                management.UpdateItem(item.GetID(), name, isbn, cost, language, description, subTitle, producer, time, demographic);
+                MessageBox.Show("Movie succesfully updated");
+            }
         }
     }
 }
