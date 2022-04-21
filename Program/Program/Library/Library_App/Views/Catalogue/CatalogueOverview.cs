@@ -55,17 +55,20 @@ namespace Library_App.Views.Account
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            MainForm.Instance.BringNewCatalogueToFront();
+            makeButtonsDissapear();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            Item item = (Item)storage;
+            if (management.DeleteItem(item.GetID()) > 0) MessageBox.Show("Item Deleted");
+            else MessageBox.Show("This item is already deleted");
+            lbView.Items.Clear();
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            lblSectionName.Text = "Update";
             MainForm.Instance.BringUpdateCatalogueToFront(storage,type);
             makeButtonsDissapear();
         }

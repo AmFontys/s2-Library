@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -122,28 +123,77 @@ namespace Library_App.Views.Account
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text;
-            string isbn = txtISBN.Text;
-            double cost = Convert.ToDouble(txtCost.Text);
-            string language = txtLanguage.Text;
-            string description = txtDescription.Text;
+            StringBuilder sb = new StringBuilder();
+            bool succes = false;
+            string name = ValidateRegex(txtName.Text, @"^[a-zA-Z0-9_\-\s]*$", out succes) ;
+            if (!succes) sb.Append("There are invalid charters in the name\n");
+
+            string isbn = ValidateRegex(txtISBN.Text, @"^[0-9]{10,}$", out succes);
+            if (!succes) sb.Append("There are invalid charters in the ISBN\n");
+
+            double cost=0;
+            if (!double.TryParse(txtCost.Text, out cost)) sb.Append("You didn't type a valid number in \n");
+
+            string language = ValidateRegex(txtLanguage.Text,@"^[a-zA-Z\s]*$", out succes);
+            if (!succes) sb.Append("There are invalid charters in the language\n");
+
+            string description = ValidateRegex(txtDescription.Text, @"^[a-zA-Z0-9_\s\,\.]*$", out succes);
+            if (!succes) sb.Append("There are invalid charters in the description\n");
 
 
             ItemManagement management = new ItemManagement(new DBConnection());
-            if (nudPages.Value != 0 && nudTimeMin.Value == 1) {
+            if (nudPages.Value != 0 && nudTimeMin.Value == 1 && sb.Length <= 0)
+            {
                 int pages = (int)nudPages.Value;
-                string author = txtAuthor.Text;
-                string publisher = txtPublisher.Text;
-                management.UpdateItem(item.GetID(), name, isbn, cost, language, description, pages, author, publisher);
-                MessageBox.Show("Book succesfully updated");
+                string author = ValidateRegex(txtAuthor.Text, @"^[a-zA-Z\-\s]*$", out succes );
+                if (!succes) sb.Append("There are invalid charters in the author name\n");
+                string publisher = ValidateRegex(txtPublisher.Text,@"^[a-zA-Z\-\s]*$",out succes );
+                if (!succes) sb.Append( "There are invalid charters in the publishers name\n");
+
+                if (sb.Length <= 0)
+                {
+                    management.UpdateItem(item.GetID(), name, isbn, cost, language, description, pages, author, publisher);
+                    MessageBox.Show("Book succesfully updated");
+                }
+                else reportError(sb);
             }
-            else if (nudPages.Value == 1 & nudTimeMin.Value !=0) {
-                string subTitle = txtSubtitle.Text;
-                string producer = txtProducer.Text;
+            else if (nudPages.Value == 1 & nudTimeMin.Value != 0 & sb.Length <= 0)
+            {
+                string subTitle = ValidateRegex(txtSubtitle.Text, @"^[a-zA-Z\s\,]*$", out succes);
+                if (!succes) sb.Append("There are invalid charters in the subtitlelanguage\n");
+                string producer = ValidateRegex(txtProducer.Text, @"^[a-zA-Z\s]*$", out succes);
+                if (!succes) sb.Append("There are invalid charters in the producers name\n");
                 int time = (int)nudTimeMin.Value;
-                string demographic = txtDemographic.Text;
-                management.UpdateItem(item.GetID(), name, isbn, cost, language, description, subTitle, producer, time, demographic);
-                MessageBox.Show("Movie succesfully updated");
+                string demographic = ValidateRegex(txtDemographic.Text, @"^[0-9]{1,3}$", out succes);
+                if (!succes) sb.Append("The demographic is not between the ranges of 0-999\n");
+
+                if (sb.Length <= 0)
+                {
+                    management.UpdateItem(item.GetID(), name, isbn, cost, language, description, subTitle, producer, time, demographic);
+                    MessageBox.Show("Movie succesfully updated");
+                }
+                else reportError(sb);
+            }
+            else reportError(sb);
+        }
+
+        private void reportError(StringBuilder sb)
+        {
+            MessageBox.Show(sb.ToString());
+        }
+
+        private string ValidateRegex(string text, string regex,out bool succes)
+        {
+            Regex rng = new Regex(regex);
+            if (rng.IsMatch(text))
+            {
+                succes = true;
+                return text;
+            }
+            else
+            {
+                succes = false;
+                return"";
             }
         }
     }

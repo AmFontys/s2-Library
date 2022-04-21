@@ -33,10 +33,8 @@ namespace Library_App.Views
             {
                 panelContentHolder.Controls.Add(WorkerOverview.Instance);
                 WorkerOverview.Instance.Dock = DockStyle.Fill;
-                WorkerOverview.Instance.BringToFront();
             }
-            else
-                WorkerOverview.Instance.BringToFront();
+            WorkerOverview.Instance.BringToFront();
         }
 
         private void btnCatalogue_Click(object sender, EventArgs e)
@@ -45,22 +43,28 @@ namespace Library_App.Views
             {
                 panelContentHolder.Controls.Add(CatalogueOverview.Instance);
                 CatalogueOverview.Instance.Dock = DockStyle.Fill;
-                CatalogueOverview.Instance.BringToFront();
             }
-            else
-                CatalogueOverview.Instance.BringToFront();
+            CatalogueOverview.Instance.BringToFront();
         }
 
+        public void BringNewCatalogueToFront()
+        {
+            if (!panelContentHolder.Controls.Contains(CatalogueNew.Instance))
+            {
+                panelContentHolder.Controls.Add(CatalogueNew.Instance);
+                CatalogueNew.Instance.Dock = DockStyle.Fill;                
+            }
+                CatalogueNew.Instance.BringToFront();
+            CatalogueNew.Instance.emptyForm();
+        }
         public void BringUpdateCatalogueToFront(object data, char type)
         {
             if (!panelContentHolder.Controls.Contains(CatalogueUpdate.Instance))
             {
                 panelContentHolder.Controls.Add(CatalogueUpdate.Instance);
                 CatalogueUpdate.Instance.Dock = DockStyle.Fill;
-                CatalogueUpdate.Instance.BringToFront();
             }
-            else
-                CatalogueUpdate.Instance.BringToFront();
+            CatalogueUpdate.Instance.BringToFront();
             CatalogueUpdate.Instance.LoadData(data, type);
         }
 
@@ -70,10 +74,8 @@ namespace Library_App.Views
             {
                 panelContentHolder.Controls.Add(EventOverview.Instance);
                 EventOverview.Instance.Dock = DockStyle.Fill;
-                EventOverview.Instance.BringToFront();
             }
-            else
-                WorkerOverview.Instance.BringToFront();
+            EventOverview.Instance.BringToFront();
         }
 
         private void btnOpeningHour_Click(object sender, EventArgs e)
@@ -82,10 +84,8 @@ namespace Library_App.Views
             {
                 panelContentHolder.Controls.Add(OpeningHourOverview.Instance);
                 OpeningHourOverview.Instance.Dock = DockStyle.Fill;
-                OpeningHourOverview.Instance.BringToFront();
             }
-            else
-                OpeningHourOverview.Instance.BringToFront();
+            OpeningHourOverview.Instance.BringToFront();
         }
 
         private void btnAccount_Click(object sender, EventArgs e)
@@ -94,10 +94,9 @@ namespace Library_App.Views
             {
                 panelContentHolder.Controls.Add(AccountOverview.Instance);
                 AccountOverview.Instance.Dock = DockStyle.Fill;
-                AccountOverview.Instance.BringToFront();
+
             }
-            else
-                AccountOverview.Instance.BringToFront();
+            AccountOverview.Instance.BringToFront();
         }
     }
 }
